@@ -1,23 +1,27 @@
-<% layout('layouts/boilerplate.ejs') %> 
-    <h1>All Campgrounds</h1>
+<% layout('layouts/boilerplate.ejs') %>
+<h1>All Campgrounds</h1>
 
-    <% for (let campground of campgrounds) { %>
-        <div class="card mb-3">
-            <div class="row">
-                <div class="col-md-4">
-                    <img class="img-fluid" src="<%= campground.image %>" alt="">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title"><%= campground.title %></h5>
-                        <p class="card-text"><%= campground.description %></p>
-                        <p class="card-text">
-                            <small class="text-muted"><%= campground.location %> </small>
-                        </p>
-                        <a class="btn btn-primary btn-dark" href="/campgrounds/<%= campground._id %> ">View <%= campground.title %> </a> <!-- bruh you can use btn class -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    <% } %>  
-
+<% for (let campground of campgrounds) { %>
+<div class="card mb-3">
+  <div class="row">
+    <div class="col-md-4">
+      <img class="img-fluid" src="<%= campground.image %>" alt="" />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%= campground.title %></h5>
+        <p class="card-text"><%= campground.description %></p>
+        <p class="card-text">
+          <small class="text-muted"><%= campground.location %> </small>
+        </p>
+        <a
+          class="btn btn-primary btn-dark"
+          href="/campgrounds/<%= campground._id %> "
+          >View <%= campground.title %>
+        </a>
+        <!-- bruh you can use btn class -->
+      </div>
+    </div>
+  </div>
+</div>
+<% } %>
