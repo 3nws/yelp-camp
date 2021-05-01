@@ -78,13 +78,13 @@
 }
 
 .flex-item-link {
-    text-decoration: none;
-    font-weight: bold;
-    color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  color: #ffffff;
 }
 
 .flex-item-link:hover {
-    text-decoration: none;
-    font-weight: bold;
-    color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  color: #ffffff;
 }
