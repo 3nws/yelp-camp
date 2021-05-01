@@ -5,15 +5,27 @@
 
 <div class="flex-container">
   <% for (let campground of campgrounds) { %>
-    <div class="image flex-item">
-      <img class="image__img" src="<%= campground.images[0].url %>" alt="" />
-      <div class="image__overlay image__overlay--primary image__overlay--blur">
-        <div class="image__title"><a class="flex-item-link" href="/campgrounds/<%= campground._id %>"><%= campground.title %></a></div>
-        <p class="image__description" style="color: antiquewhite;"><%= campground.location %></p>
-        <p class="image__description"><%= campground.description %></p>
-        <p class="image__description" style="color: bisque;"><%= campground.dateCreated %></p>
+  <div class="image flex-item">
+    <% if(campground.images.length) { %>
+    <img class="image__img" src="<%= campground.images[0].url %>" alt="" />
+    <% } else { %>
+    <img class="image__img" src="" alt="" />
+    <% } %>
+    <div class="image__overlay image__overlay--primary image__overlay--blur">
+      <div class="image__title">
+        <a class="flex-item-link" href="/campgrounds/<%= campground._id %>"
+          ><%= campground.title %></a
+        >
       </div>
+      <p class="image__description" style="color: antiquewhite">
+        <%= campground.location %>
+      </p>
+      <p class="image__description"><%= campground.description %></p>
+      <p class="image__description" style="color: bisque">
+        <%= campground.dateCreated %>
+      </p>
     </div>
+  </div>
   <% } %>
 </div>
 
