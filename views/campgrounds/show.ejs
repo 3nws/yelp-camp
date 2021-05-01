@@ -8,7 +8,6 @@
 
 <div class="row">
   <div class="col-6">
-    <div id="map" style="width: 400px; height: 300px"></div>
     <div id="campgroundCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <% campground.images.forEach((img, i) => { %>
@@ -71,6 +70,7 @@
     </div>
   </div>
   <div class="col-6">
+    <div id="map" style="width: 400px; height: 300px"></div>
     <% if(loggedUser) { %>
     <h2>Leave a Review</h2>
     <form
@@ -160,6 +160,7 @@
           <button class="btn btn-sm btn-danger">Delete</button>
         </form>
         <% } %>
+        <p><%= review.datePosted %> </p>
       </div>
     </div>
     <% } %>

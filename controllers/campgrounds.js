@@ -28,11 +28,7 @@ module.exports.createNewCampground = async (req, res, next) => {
     url: f.path,
     filename: f.filename,
   }));
-  var today = new Date();
-  var dd = String(today.getDate()).padStart(2, "0");
-  var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-  var yyyy = today.getFullYear();
-  today = mm + "/" + dd + "/" + yyyy;
+  const today = new Date().toLocaleString();
   campground.dateCreated = today;
   campground.author = req.user._id;
   await campground.save();

@@ -1,4 +1,5 @@
 <% layout('layouts/boilerplate.ejs') %>
+<link rel="stylesheet" href="/stylesheets/style.css" />
 <div id="map" style="width: 100%; height: 500px"></div>
 <h1>All Campgrounds</h1>
 
@@ -35,6 +36,13 @@
     </div>
   </div>
 </div>
+<% } %>
+<% if(loggedUser) { %>
+<a href="/campgrounds/new"
+  ><img
+    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.flaticon.com%2Ficons%2Fpng%2F512%2F16%2F16909.png&f=1&nofb=1"
+    id="fixedbutton"
+/></a>
 <% } %>
 
 <script>
