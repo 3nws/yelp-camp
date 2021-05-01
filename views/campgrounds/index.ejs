@@ -1,4 +1,5 @@
 <% layout('layouts/boilerplate.ejs') %>
+<div id="map" style="width: 100%; height: 500px"></div>
 <h1>All Campgrounds</h1>
 
 <% for (let campground of campgrounds) { %>
@@ -8,7 +9,11 @@
       <% if(campground.images.length) { %>
       <img class="img-fluid" src="<%= campground.images[0].url %>" alt="" />
       <% }else { %>
-      <img class="img-fluid" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fagentestudio.com%2Fuploads%2Fpost%2Fimage%2F69%2Fmain_how_to_design_404_page.png&f=1&nofb=1" alt="" />
+      <img
+        class="img-fluid"
+        src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fagentestudio.com%2Fuploads%2Fpost%2Fimage%2F69%2Fmain_how_to_design_404_page.png&f=1&nofb=1"
+        alt=""
+      />
       <% } %>
     </div>
     <div class="col-md-8">
@@ -31,3 +36,10 @@
   </div>
 </div>
 <% } %>
+
+<script>
+  const mapToken = "<%- process.env.MAPBOX_TOKEN %> ";
+  const campgrounds = {features: <%- JSON.stringify(campgrounds) %>};
+</script>
+
+<script src="/javascripts/clusterMap.js"></script>
