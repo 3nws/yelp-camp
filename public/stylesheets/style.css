@@ -106,3 +106,7 @@
   display: table;
   clear: both;
 }
+
+.margin-lr-auto{
+  margin: 0 auto 0 auto;
+}
