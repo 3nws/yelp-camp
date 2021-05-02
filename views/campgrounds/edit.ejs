@@ -77,10 +77,9 @@
       </div>
       <br />
       <div class="mb-3">Delete?</div>
-      <div class="mb-3" style="display: inline;">
+      <div class="mb-3" style="display: inline">
         <% campground.images.forEach(function(img, i) { %>
         <div class="campground-images">
-          <img src="<%=img.thumbnail %>" class="img-thumbnail" alt="" />
           <div class="form-check-inline">
             <input
               type="checkbox"
@@ -90,7 +89,9 @@
               value="<%=img.filename%>"
             />
           </div>
-          <label for="image-<%=i%>"></label>
+          <label for="image-<%=i%>">
+            <img src="<%=img.thumbnail %>" class="img-thumbnail" alt=""
+          /></label>
         </div>
         <% })%>
       </div>

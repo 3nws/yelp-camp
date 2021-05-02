@@ -98,7 +98,7 @@
 .image-checkbox {
   position: absolute;
   top: 1em;
-  left: 1em;
+  left: 2.2em;
 }
 
 .clearfix::after {
@@ -107,6 +107,6 @@
   clear: both;
 }
 
-.margin-lr-auto{
+.margin-lr-auto {
   margin: 0 auto 0 auto;
 }
