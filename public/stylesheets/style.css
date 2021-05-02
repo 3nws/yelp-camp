@@ -88,3 +88,20 @@
   font-weight: bold;
   color: #ffffff;
 }
+
+.campground-images {
+  position: relative;
+  float: left;
+}
+
+.image-checkbox {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
