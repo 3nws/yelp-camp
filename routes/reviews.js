@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router({ mergeParams: true });
 const catchAsync = require("../utils/catchAsync");
 const reviews = require("../controllers/reviews");
+const multer = require("multer");
+
 const {
   isLoggedIn,
   validateReview,
@@ -20,6 +22,7 @@ router.delete(
 
 router.put(
   "/:id",
+  multer().array(),
   isLoggedIn,
   isReviewAuthorEdit,
   catchAsync(reviews.editReview)
