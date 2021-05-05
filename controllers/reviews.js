@@ -32,10 +32,10 @@ module.exports.renderEditReviewForm = async (req, res, next) => {
 };
 
 module.exports.editReview = async (req, res, next) => {
-  const { id } = req.params;
+  const { id, campgroundId } = req.params;
   const review = await Review.findByIdAndUpdate(id, { ...req.body.review });
-  // review.body =
-  // await review.save();
-  req.flash("success", "Successfully updated campground!");
-  res.redirect(`/campgrounds`);
+  const campground_id = review.campground;
+  await review.save();
+  req.flash("success", "Successfully updated review!");
+  res.redirect(`/campgrounds/${campground_id}`);
 };

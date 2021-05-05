@@ -13,6 +13,7 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrat = require("passport-local");
 const User = require("./models/user");
+const multer = require("multer");
 
 const campgroundRoutes = require("./routes/campgrounds");
 const reviewRoutes = require("./routes/reviews");
@@ -37,7 +38,9 @@ app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(multer().array());
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 
