@@ -5,6 +5,10 @@ const reviewSchema = new Schema({
   body: String,
   rating: Number,
   datePosted: String,
+  campground: {
+    type: Schema.Types.ObjectId,
+    ref: "Campground",
+  },
   author: {
     type: Schema.Types.ObjectId,
     ref: "User",

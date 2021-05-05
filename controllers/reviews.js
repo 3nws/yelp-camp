@@ -9,6 +9,7 @@ module.exports.postReview = async (req, res) => {
   review.datePosted = today;
   review.author = req.user._id;
   campground.reviews.push(review);
+  review.campground = campground;
   await review.save();
   await campground.save();
   req.flash("success", "Successfully created new review!");
@@ -24,40 +25,17 @@ module.exports.deleteReview = async (req, res) => {
 };
 
 module.exports.renderEditReviewForm = async (req, res, next) => {
-  Review.findById(req.params.review_id, function (err, foundReview) {
-    if (err) {
-      req.flash("error", err.message);
-      return res.redirect("back");
-    }
-    res.render("reviews/edit", {
-      campground_id: req.params.id,
-      review: foundReview,
-    });
-  });
+  const { id } = req.params;
+  const review = await Review.findById(id);
+  const campground = review.campground;
+  res.render("reviews/edit", { campground, review });
 };
 
 module.exports.editReview = async (req, res, next) => {
-  Review.findByIdAndUpdate(
-    req.params.review_id,
-    req.body.review,
-    { new: true },
-    function (err, updatedReview) {
-      if (err) {
-        req.flash("error", err.message);
-        return res.redirect("back");
-      }
-      Campground.findById(req.params.id)
-        .populate("reviews")
-        .exec(function (err, campground) {
-          if (err) {
-            req.flash("error", err.message);
-            return res.redirect("back");
-          }
-          //save changes
-          campground.save();
-          req.flash("success", "Your review was successfully edited.");
-          res.redirect("/campgrounds/" + campground._id);
-        });
-    }
-  );
+  const { id } = req.params;
+  const review = await Review.findByIdAndUpdate(id, { ...req.body.review });
+  // review.body =
+  // await review.save();
+  req.flash("success", "Successfully updated campground!");
+  res.redirect(`/campgrounds`);
 };
