@@ -28,4 +28,13 @@ router.delete(
   catchAsync(reviews.deleteReview)
 );
 
+router.put(
+  catchAsync(reviews.editReview)
+);
+
+router.get(
+  "/:id/edit",
+  catchAsync(reviews.renderEditReviewForm)
+);
+
 module.exports = router;

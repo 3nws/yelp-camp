@@ -20,10 +20,7 @@ module.exports.deleteReview = async (req, res) => {
   await Campground.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
   await Review.findByIdAndDelete(reviewId);
   req.flash("success", "Successfully deleted the review!");
-<<<<<<< Updated upstream
   res.redirect(`/campgrounds/${id}`);
-=======
-  res.redirect(`/reviews/${id}`);
 };
 
 module.exports.renderEditReviewForm = async (req, res, next) => {
@@ -63,5 +60,4 @@ module.exports.editReview = async (req, res, next) => {
         });
     }
   );
->>>>>>> Stashed changes
 };

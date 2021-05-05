@@ -158,6 +158,9 @@
           <button class="btn btn-sm btn-danger">Delete</button>
         </form>
         <% } %>
+        <a href="/campgrounds/<%= campground._id %>/reviews/<%=review._id%>"
+          >Edit</a
+        >
         <p><%= review.datePosted %></p>
       </div>
     </div>
