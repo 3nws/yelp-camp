@@ -50,3 +50,13 @@ module.exports.isReviewAuthor = async (req, res, next) => {
   }
   next();
 };
+
+module.exports.isReviewAuthorEdit = async (req, res, next) => {
+  const { id } = req.params;
+  const review = await Review.findById(id);
+  if (!review.author.equals(req.user._id)) {
+    req.flash("error", "You don't have permission for that!");
+    return res.redirect(`/campgrounds/${id}`);
+  }
+  next();
+};

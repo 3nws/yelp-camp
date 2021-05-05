@@ -32,7 +32,7 @@ module.exports.renderEditReviewForm = async (req, res, next) => {
 };
 
 module.exports.editReview = async (req, res, next) => {
-  const { id, campgroundId } = req.params;
+  const { id } = req.params;
   const review = await Review.findByIdAndUpdate(id, { ...req.body.review });
   const campground_id = review.campground;
   await review.save();

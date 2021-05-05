@@ -2,7 +2,12 @@ const express = require("express");
 const router = express.Router({ mergeParams: true });
 const catchAsync = require("../utils/catchAsync");
 const reviews = require("../controllers/reviews");
-const { isLoggedIn, validateReview, isReviewAuthor } = require("../middleware");
+const {
+  isLoggedIn,
+  validateReview,
+  isReviewAuthor,
+  isReviewAuthorEdit,
+} = require("../middleware");
 
 router.post("/", isLoggedIn, validateReview, catchAsync(reviews.postReview));
 
@@ -15,11 +20,15 @@ router.delete(
 
 router.put(
   "/:id",
+  isLoggedIn,
+  isReviewAuthorEdit,
   catchAsync(reviews.editReview)
 );
 
 router.get(
   "/:id/edit",
+  isLoggedIn,
+  isReviewAuthorEdit,
   catchAsync(reviews.renderEditReviewForm)
 );
 
