@@ -43,6 +43,10 @@ router
       req.flash("success", "Welcome Back!");
       const redirectUrl = req.session.returnTo || "/campgrounds";
       delete req.session.returnTo;
+      if (redirectUrl == "/register") {
+        res.redirect("/campgrounds");
+        return;
+      }
       res.redirect(redirectUrl);
     }
   );

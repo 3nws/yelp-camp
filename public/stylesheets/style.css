@@ -118,3 +118,8 @@
   height: 500px;
   margin-bottom: 10px;
 }
+
+.width-75 {
+  width: 75%;
+  margin: auto;
+}
