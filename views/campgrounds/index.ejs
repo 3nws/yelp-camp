@@ -1,6 +1,6 @@
 <% layout('layouts/boilerplate.ejs') %>
 <link rel="stylesheet" href="/stylesheets/style.css" />
-<div id="map" style="width: 100%; height: 500px; margin-bottom: 10px"></div>
+<div id="map"></div>
 
 <div class="flex-container">
   <% for (let campground of campgrounds) { %>
@@ -10,20 +10,18 @@
     <% } else { %>
     <img class="image__img" src="" alt="" />
     <% } %>
-    <div class="image__overlay image__overlay--primary image__overlay--blur">
-      <div class="image__title">
-        <a class="flex-item-link" href="/campgrounds/<%= campground._id %>"
-          ><%= campground.title %></a
-        >
+    <a class="flex-item-link" href="/campgrounds/<%= campground._id %>">
+      <div class="image__overlay image__overlay--primary image__overlay--blur">
+        <div class="image__title"><%= campground.title %></div>
+        <p class="image__description" style="color: antiquewhite">
+          <%= campground.location %>
+        </p>
+        <p class="image__description"><%= campground.description %></p>
+        <p class="image__description" style="color: bisque">
+          <%= campground.dateCreated %>
+        </p>
       </div>
-      <p class="image__description" style="color: antiquewhite">
-        <%= campground.location %>
-      </p>
-      <p class="image__description"><%= campground.description %></p>
-      <p class="image__description" style="color: bisque">
-        <%= campground.dateCreated %>
-      </p>
-    </div>
+    </a>
   </div>
   <% } %>
 </div>

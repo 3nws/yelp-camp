@@ -110,3 +110,9 @@
 .margin-lr-auto {
   margin: 0 auto 0 auto;
 }
+
+#map {
+  width: 100%;
+  height: 500px;
+  margin-bottom: 10px;
+}
