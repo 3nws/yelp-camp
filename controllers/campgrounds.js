@@ -1,4 +1,5 @@
 const Campground = require("../models/campground");
+const User = require("../models/user");
 const { cloudinary } = require("../cloudinary");
 const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
 const mbxToken = process.env.MAPBOX_TOKEN;
@@ -32,6 +33,10 @@ module.exports.createNewCampground = async (req, res, next) => {
   campground.dateCreated = today;
   campground.author = req.user._id;
   await campground.save();
+  await User.findByIdAndUpdate(campground.author, {
+    $inc: { num_of_campgrounds_posted: 1 },
+  });
+  console.log(campground.author.num_of_campgrounds_posted);
   req.flash("success", "Successfully made a new campground!");
   res.redirect(`/campgrounds/${campground._id}`);
 };

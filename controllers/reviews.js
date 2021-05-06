@@ -1,6 +1,6 @@
 const Review = require("../models/review");
 const Campground = require("../models/campground");
-const review = require("../models/review");
+const User = require("../models/user");
 
 module.exports.postReview = async (req, res) => {
   const campground = await Campground.findById(req.params.id);
@@ -12,6 +12,9 @@ module.exports.postReview = async (req, res) => {
   review.campground = campground;
   await review.save();
   await campground.save();
+  await User.findByIdAndUpdate(review.author, {
+    $inc: { num_of_reviews_posted: 1 },
+  });
   req.flash("success", "Successfully created new review!");
   res.redirect(`/campgrounds/${campground._id}`);
 };
