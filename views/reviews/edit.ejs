@@ -1,4 +1,5 @@
 <% layout('layouts/boilerplate.ejs') %>
+<link rel="stylesheet" href="/stylesheets/stars.css" />
 
 <div class="row">
   <h1 class="text-center">Edit Review</h1>
@@ -10,6 +11,98 @@
       class="validated-form"
       enctype="multipart/form-data"
     >
+      <div class="mb-3">
+        <label class="form-label" for="rating">Rating</label>
+        <div class="mb-3">
+          <fieldset class="starability-checkmark">
+            <% if(review.rating == 1) { %>
+            <input
+              type="radio"
+              id="first-rate1"
+              name="review[rating]"
+              value="1"
+              checked
+            />
+            <% } else { %>
+            <input
+              type="radio"
+              id="first-rate1"
+              name="review[rating]"
+              value="1"
+            />
+            <% } %> 
+            <label for="first-rate1" title="Terrible">1 star</label>
+            <% if(review.rating == 2) { %>
+            <input
+              type="radio"
+              id="first-rate2"
+              name="review[rating]"
+              value="2"
+              checked
+            />
+            <% } else { %>
+            <input
+              type="radio"
+              id="first-rate2"
+              name="review[rating]"
+              value="2"
+            />
+            <% } %> 
+            <label for="first-rate2" title="Not good">2 stars</label>
+            <% if(review.rating == 3) { %>
+            <input
+              type="radio"
+              id="first-rate3"
+              name="review[rating]"
+              value="3"
+              checked
+            />
+            <% } else { %>
+            <input
+              type="radio"
+              id="first-rate3"
+              name="review[rating]"
+              value="3"
+            />
+            <% } %> 
+            <label for="first-rate3" title="Average">3 stars</label>
+            <% if(review.rating == 4) { %>
+            <input
+              type="radio"
+              id="first-rate4"
+              name="review[rating]"
+              value="4"
+              checked
+            />
+            <% } else { %>
+            <input
+              type="radio"
+              id="first-rate4"
+              name="review[rating]"
+              value="4"
+            />
+            <% } %> 
+            <label for="first-rate4" title="Very good">4 stars</label>
+            <% if(review.rating == 5) { %>
+            <input
+              type="radio"
+              id="first-rate5"
+              name="review[rating]"
+              value="5"
+              checked
+            />
+            <% } else { %>
+            <input
+              type="radio"
+              id="first-rate5"
+              name="review[rating]"
+              value="5"
+            />
+            <% } %> 
+            <label for="first-rate5" title="Amazing">5 stars</label>
+          </fieldset>
+        </div>
+      </div>
       <div class="mb-3">
         <label for="body" class="form-label">Review: </label>
         <input
