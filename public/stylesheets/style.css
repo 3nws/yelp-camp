@@ -17,6 +17,10 @@
   padding-bottom: 3rem;
 }
 
+.brand {
+  text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
+}
+
 .buttons a {
   text-decoration: none;
 }

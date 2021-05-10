@@ -1,12 +1,6 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="/campgrounds">
-      <img
-        src="https://bulma.io/images/bulma-logo.png"
-        width="112"
-        height="28"
-      />
-    </a>
+    <h3 class="float-md-left mb-0 ml-3 brand">YelpCamp</h3>
 
     <a
       role="button"
@@ -39,7 +33,7 @@
       <div class="navbar-item">
         <div class="buttons">
           <% if(loggedUser) { %>
-            <a href="/logout" class="button is-light">Logout</a>
+          <a href="/logout" class="button is-light">Logout</a>
           <% } else { %>
           <a class="button is-primary" href="/register">
             <strong>Sign up</strong>
