@@ -8,6 +8,19 @@
   height: 50px;
 }
 
+.navbar-item,
+.navbar-link {
+  text-decoration: none;
+}
+
+.footer {
+  padding-bottom: 3rem;
+}
+
+.buttons a {
+  text-decoration: none;
+}
+
 .image {
   position: relative;
   width: 400px;
