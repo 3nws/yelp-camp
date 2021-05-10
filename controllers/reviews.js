@@ -13,8 +13,11 @@ module.exports.postReview = async (req, res) => {
   await review.save();
   await campground.save();
   await User.findByIdAndUpdate(review.author, {
-    $inc: { num_of_reviews_posted: 1 },
+    $push: { reviews: review },
   });
+  // await User.findByIdAndUpdate(review.author, {
+  //   $inc: { num_of_reviews_posted: 1 },
+  // });
   req.flash("success", "Successfully created new review!");
   res.redirect(`/campgrounds/${campground._id}`);
 };

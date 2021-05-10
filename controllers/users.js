@@ -39,7 +39,9 @@ module.exports.authenticate = (req, res) => {
 
 module.exports.getProfilePage = async (req, res) => {
   const id = req.user._id;
-  const user = await User.findById(id);
+  const user = await User.findById(id)
+    .populate("campgrounds")
+    .populate("reviews");
   res.render("users/profile", { user });
 };
 
