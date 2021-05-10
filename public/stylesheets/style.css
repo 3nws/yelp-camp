@@ -96,6 +96,10 @@
   margin: 3px 3px 3px 3px;
 }
 
+#yelpcamp-icon {
+  margin: 0.4em -0.6em 0 1em
+}
+
 .flex-item-link {
   text-decoration: none;
   font-weight: bold;
