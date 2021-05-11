@@ -164,7 +164,7 @@
           <p class="starability-result" data-rating="<%= review.rating %>"></p>
           <p class="card-text">Review: <%= review.body %></p>
           <% if( loggedUser && review.author.equals(loggedUser._id)) { %>
-          <button class="button is-info">
+          <button class="button is-info is-small">
             <a
               href="/campgrounds/<%= campground._id %>/reviews/<%=review._id%>/edit"
               class="no-decoration"
@@ -176,7 +176,7 @@
             class="d-inline"
             method="POST"
           >
-            <button class="button is-danger">Delete</button>
+            <button class="button is-danger is-small">Delete</button>
           </form>
           
           <% } %>
