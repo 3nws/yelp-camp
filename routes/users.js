@@ -21,7 +21,7 @@ router
     users.authenticate
   );
 
-router.get("/profile", catchAsync(users.getProfilePage));
+router.get("/profile/:id", catchAsync(users.getProfilePage));
 
 router.get("/logout", users.logoutUser);
 
