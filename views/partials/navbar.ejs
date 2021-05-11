@@ -34,7 +34,7 @@
       <div class="navbar-item">
         <div class="buttons">
           <% if(loggedUser) { %>
-          <a href="/profile/<%= loggedUser._id %> " class="button is-light">Profile</a>
+          <a href="/profile/<%= loggedUser._id %> " class="button is-info">Profile</a>
           <a href="/logout" class="button is-light">Logout</a>
           <% } else { %>
           <a class="button is-primary" href="/register">

@@ -64,7 +64,7 @@
         <div class="card-body">
           <a
             href="/campgrounds/<%= campground._id %>/edit"
-            class="card-link btn btn-info"
+            class="card-link button is-info no-decoration"
             >Edit</a
           >
           <form
@@ -72,7 +72,7 @@
             action="/campgrounds/<%= campground._id %>?_method=DELETE"
             method="POST"
           >
-            <button class="btn btn-danger">DELETE</button>
+            <button class="button is-danger">DELETE</button>
           </form>
         </div>
         <% } %>
@@ -152,7 +152,7 @@
           ></textarea>
           <div class="valid-feedback">Looks good!</div>
         </div>
-        <button class="btn btn-success">Submit</button>
+        <button class="button is-success">Submit</button>
       </form>
       <% } %> <% for(let review of campground.reviews) { %>
       <div class="card mb-3">
@@ -164,18 +164,21 @@
           <p class="starability-result" data-rating="<%= review.rating %>"></p>
           <p class="card-text">Review: <%= review.body %></p>
           <% if( loggedUser && review.author.equals(loggedUser._id)) { %>
-          <form
-            action="/campgrounds/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE"
-            method="POST"
-          >
-            <button class="btn btn-sm btn-danger">Delete</button>
-          </form>
-          <button class="btn btn-sm btn-info">
+          <button class="button is-info">
             <a
               href="/campgrounds/<%= campground._id %>/reviews/<%=review._id%>/edit"
+              class="no-decoration"
               >Edit</a
             >
           </button>
+          <form
+            action="/campgrounds/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE"
+            class="d-inline"
+            method="POST"
+          >
+            <button class="button is-danger">Delete</button>
+          </form>
+          
           <% } %>
           <p><%= review.datePosted %></p>
         </div>
