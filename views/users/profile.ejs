@@ -1,8 +1,36 @@
 <% layout('layouts/boilerplate') %>
 
-<div class="row">
-  <div class="col-6">
-      <h1><%= user %> ></h1>
+<div class="row width-75">
+  <div class="col-6">USER INFO HERE</div>
+  <div class="col-6 mb-5">
+    <strong>Posted campgrounds:</strong>
+    <% for (let campground of user.campgrounds) { %>
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-16by9">
+          <img src="<%= campground.images[0].url %> " alt="" />
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="<%= campground.images[0].url %> " alt="" />
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4"><strong><%= user.username %></strong></p>
+            <p class="subtitle is-6"><%= user.email %></p>
+          </div>
+        </div>
+
+        <div class="content">
+          <%= campground.description %>
+          <br />
+          <time datetime="2016-1-1"><%= campground.dateCreated %></time>
+        </div>
+      </div>
+    </div>
+    <% } %>
   </div>
-  <div class="col-6">2</div>
 </div>
