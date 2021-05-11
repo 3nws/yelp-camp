@@ -1,36 +1,82 @@
 <% layout('layouts/boilerplate') %>
 
 <div class="row width-75">
-  <div class="col-6">USER INFO HERE</div>
+  <div class="col-6">
+    <p><strong style="font-size: 24px"><%= user.username %></strong></p>
+    <img
+      src="#"
+      alt=""
+      style="height: 300px; width: 300px; margin-bottom: 1em"
+    />
+    <p>email: <%= user.email %></p>
+  </div>
   <div class="col-6 mb-5">
-    <strong>Posted campgrounds:</strong>
-    <% for (let campground of user.campgrounds) { %>
-    <div class="card">
-      <div class="card-image">
-        <figure class="image is-16by9">
-          <img src="<%= campground.images[0].url %> " alt="" />
-        </figure>
-      </div>
-      <div class="card-content">
-        <div class="media">
-          <div class="media-left">
-            <figure class="image is-48x48">
-              <img src="<%= campground.images[0].url %> " alt="" />
-            </figure>
-          </div>
-          <div class="media-content">
-            <p class="title is-4"><strong><%= user.username %></strong></p>
-            <p class="subtitle is-6"><%= user.email %></p>
-          </div>
+    <button class="button" onclick="viewCampgrounds()">Campgrounds</button>
+    <button class="button" onclick="viewReviews()">Reviews</button>
+    <div id="campgrounds-view">
+      <strong
+        >Posted campgrounds, all <%= user.campgrounds.length %> of them:
+      </strong>
+      <% for (let campground of user.campgrounds) { %>
+      <div class="card mb-3">
+        <div class="card-image">
+          <figure class="image is-16by9">
+            <img src="<%= campground.images[0].url %> " alt="" />
+          </figure>
         </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48">
+                <img src="" alt="" />
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-4"><strong><%= user.username %></strong></p>
+              <p class="subtitle is-6"><%= user.email %></p>
+            </div>
+          </div>
 
-        <div class="content">
-          <%= campground.description %>
-          <br />
-          <time datetime="2016-1-1"><%= campground.dateCreated %></time>
+          <div class="content">
+            <p class="title is-4">
+              <a class="no-decoration" href="/campgrounds/<%= campground._id %>"
+                ><strong><%= campground.title %></strong></a
+              >
+            </p>
+            <%= campground.description %>
+            <br />
+            <time datetime="2016-1-1"><%= campground.dateCreated %></time>
+          </div>
         </div>
       </div>
+      <% } %>
     </div>
-    <% } %>
+    <div id="reviews-view" style="display: none">
+      <strong>Posted reviews, all <%= user.reviews.length %> of them: </strong>
+      <% for (let review of user.reviews) { %>
+      <div class="card mb-3">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48">
+                <img src="" alt="" />
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-4"><strong><%= user.username %></strong></p>
+              <p class="subtitle is-6"><%= user.email %></p>
+            </div>
+          </div>
+          <div class="content">
+            <%= review.body %>
+            <br />
+            <time datetime="2016-1-1"><%= review.datePosted %></time>
+          </div>
+        </div>
+      </div>
+      <% } %>
+    </div>
   </div>
 </div>
+
+<script src="/javascripts/selectView.js"></script>
