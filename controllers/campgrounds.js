@@ -36,9 +36,6 @@ module.exports.createNewCampground = async (req, res, next) => {
   await User.findByIdAndUpdate(campground.author, {
     $push: { campgrounds: campground },
   });
-  // await User.findByIdAndUpdate(campground.author, {
-  //   $inc: { num_of_campgrounds_posted: 1 },
-  // });
   req.flash("success", "Successfully made a new campground!");
   res.redirect(`/campgrounds/${campground._id}`);
 };
