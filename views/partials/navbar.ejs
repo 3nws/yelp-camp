@@ -1,6 +1,9 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <span class="iconify icon:mdi-tent icon-inline:false" id="yelpcamp-icon"></span>
+    <span
+      class="iconify icon:mdi-tent icon-inline:false"
+      id="yelpcamp-icon"
+    ></span>
     <h3 class="float-md-left mb-0 ml-4 brand">YelpCamp</h3>
 
     <a
@@ -25,7 +28,7 @@
         <a class="navbar-link"> More </a>
 
         <div class="navbar-dropdown">
-          <a class="navbar-item"> About </a>
+          <a class="navbar-item" href="/about"> About </a>
         </div>
       </div>
     </div>
@@ -34,7 +37,9 @@
       <div class="navbar-item">
         <div class="buttons">
           <% if(loggedUser) { %>
-          <a href="/profile/<%= loggedUser._id %> " class="button is-info">Profile</a>
+          <a href="/profile/<%= loggedUser._id %> " class="button is-info"
+            >Profile</a
+          >
           <a href="/logout" class="button is-light">Logout</a>
           <% } else { %>
           <a class="button is-primary" href="/register">
