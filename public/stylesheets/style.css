@@ -30,6 +30,7 @@
   text-decoration: none;
 }
 
+
 .image {
   position: relative;
   width: 400px;
@@ -105,7 +106,7 @@
 }
 
 #yelpcamp-icon {
-  margin: 0.4em -0.6em 0 1em
+  margin: 0.4em -0.6em 0 1em;
 }
 
 .flex-item-link {
