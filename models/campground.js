@@ -27,7 +27,7 @@ const CampgroundSchema = new Schema(
         required: true,
       },
     },
-    dateCreated: String,
+    dateCreated: { type: Date, default: Date.now },
     author: {
       type: Schema.Types.ObjectId,
       ref: "User",
@@ -49,7 +49,7 @@ CampgroundSchema.virtual("properties.popUp").get(function () {
       ${this.title}
     </a>
   </strong>
-  <p>${this.description.substring(0,30)}...</p>
+  <p>${this.description.substring(0, 30)}...</p>
   `;
 });
 

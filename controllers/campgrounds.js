@@ -29,8 +29,6 @@ module.exports.createNewCampground = async (req, res, next) => {
     url: f.path,
     filename: f.filename,
   }));
-  const today = new Date().toLocaleString();
-  campground.dateCreated = today;
   campground.author = req.user._id;
   await campground.save();
   await User.findByIdAndUpdate(campground.author, {

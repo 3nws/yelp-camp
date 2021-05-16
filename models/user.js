@@ -16,7 +16,7 @@ const UserSchema = new Schema({
     },
   ],
   reviews: [{ type: Schema.Types.ObjectId, ref: "Review" }],
-  dateRegistered: String,
+  dateRegistered: { type: Date, default: Date.now },
 });
 
 UserSchema.plugin(passportLocalMongoose);

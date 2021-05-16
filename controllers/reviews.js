@@ -5,8 +5,6 @@ const User = require("../models/user");
 module.exports.postReview = async (req, res) => {
   const campground = await Campground.findById(req.params.id);
   const review = new Review(req.body.review);
-  const today = new Date().toLocaleString();
-  review.datePosted = today;
   review.author = req.user._id;
   campground.reviews.push(review);
   review.campground = campground;
