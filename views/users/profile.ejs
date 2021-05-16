@@ -12,8 +12,18 @@
     <p>Member since <%= user.dateRegistered.toLocaleString() %></p>
   </div>
   <div class="col-6 mb-5">
-    <button class="button is-focused is-rounded is-info is-light" onclick="viewCampgrounds()">Campgrounds</button>
-    <button class="button is-focused is-rounded is-info is-light" onclick="viewReviews()">Reviews</button>
+    <button
+      class="button is-focused is-rounded is-info is-light"
+      onclick="viewCampgrounds()"
+    >
+      Campgrounds
+    </button>
+    <button
+      class="button is-focused is-rounded is-info is-light"
+      onclick="viewReviews()"
+    >
+      Reviews
+    </button>
     <div id="campgrounds-view">
       <strong
         >Posted campgrounds, all <%= user.campgrounds.length %> of them:
@@ -44,9 +54,11 @@
                 ><strong><%= campground.title %></strong></a
               >
             </p>
-            <%= campground.description %>
+            <%= campground.description.substring(0,150) %>...
             <br />
-            <time datetime="2016-1-1"><%= campground.dateCreated %></time>
+            <time datetime="2016-1-1"
+              ><%= campground.dateCreated.toLocaleString() %></time
+            >
           </div>
         </div>
       </div>
@@ -69,9 +81,19 @@
             </div>
           </div>
           <div class="content">
-            <%= review.body %>
+            <% if(review.body.length>150) { %>
+            <p class="card-text">
+              Review: <%= review.body.substring(0,150) %><a style="color: blue; display: block; width:fit-content;"
+                >more</a
+              >
+            </p>
+            <% } else { %>
+            <p class="card-text">Review: <%= review.body %></p>
+            <% } %>
             <br />
-            <time datetime="2016-1-1"><%= review.datePosted %></time>
+            <time datetime="2016-1-1"
+              ><%= review.datePosted.toLocaleString() %></time
+            >
           </div>
         </div>
       </div>
