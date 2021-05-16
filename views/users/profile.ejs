@@ -9,7 +9,7 @@
       style="height: 300px; width: 300px; margin-bottom: 1em"
     />
     <p>email: <%= user.email %></p>
-    <p>Member since <%= user.dateRegistered %></p>
+    <p>Member since <%= user.dateRegistered.toLocaleString() %></p>
   </div>
   <div class="col-6 mb-5">
     <button class="button is-focused is-rounded is-info is-light" onclick="viewCampgrounds()">Campgrounds</button>
