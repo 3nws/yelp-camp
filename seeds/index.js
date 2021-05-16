@@ -22,7 +22,6 @@ const seedDB = async () => {
   for (let i = 0; i < 200; i++) {
     const random1000 = Math.floor(Math.random() * 1000);
     const price = Math.floor(Math.random() * 20) + 10;
-    const today = new Date().toLocaleString();
     const camp = new Campground({
       author: "6076d8f625c2832388add0f1",
       location: `${cities[random1000].city}, ${cities[random1000].state}`,
@@ -37,7 +36,6 @@ const seedDB = async () => {
           cities[random1000].latitude,
         ],
       },
-      dateCreated: today,
       images: [
         {
           url:

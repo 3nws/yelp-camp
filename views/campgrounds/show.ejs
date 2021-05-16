@@ -46,6 +46,7 @@
       <div class="card mb-3">
         <div class="card-body">
           <h5 class="card-title"><%= campground.title %></h5>
+          <p class="starability-result" data-rating="<%= Math.floor(campground.rateAvg) %>"></p>
           <p class="card-text"><%= campground.description %></p>
         </div>
         <ul class="list-group list-group-flush">

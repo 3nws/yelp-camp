@@ -1,5 +1,6 @@
 <% layout('layouts/boilerplate.ejs') %>
 <link rel="stylesheet" href="/stylesheets/style.css" />
+<link rel="stylesheet" href="/stylesheets/stars.css" />
 <div id="map"></div>
 
 <div class="flex-container">
@@ -13,6 +14,10 @@
     <a class="flex-item-link" href="/campgrounds/<%= campground._id %>">
       <div class="image__overlay image__overlay--primary image__overlay--blur">
         <div class="image__title"><%= campground.title %></div>
+        <p
+          class="starability-result"
+          data-rating="<%= Math.floor(campground.rateAvg) %>"
+        ></p>
         <h6>
           <% if(campground.reviews.length === 0) { %>
           <span class="text-muted">No Reviews</span>
@@ -29,7 +34,7 @@
         <p class="image__description" style="color: antiquewhite">
           <%= campground.location %>
         </p>
-        <p class="image__description"><%= campground.description %></p>
+        <p class="image__description"><%= campground.description.substring(0,150) %>...</p>
         <p class="image__description" style="color: bisque">
           <%= campground.dateCreated.toLocaleString() %>
         </p>

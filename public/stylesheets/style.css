@@ -87,6 +87,9 @@
   font-size: 1.25em;
   margin-top: 0.25em;
   margin-left: 1em;
+  text-align: center;
+  word-break: break-all;
+  margin-right: 1em;
 }
 
 .flex-container {

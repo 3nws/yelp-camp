@@ -9,6 +9,8 @@ module.exports.postReview = async (req, res) => {
   campground.reviews.push(review);
   review.campground = campground;
   await review.save();
+  campground.total += review.rating;
+  campground.rateAvg = campground.total/campground.reviews.length;
   await campground.save();
   await User.findByIdAndUpdate(review.author, {
     $push: { reviews: review },
