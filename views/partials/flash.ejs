@@ -1,23 +1,27 @@
 <div class="width-75">
   <% if(success && success.length) { %>
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
+  <div class="notification is-success is-light mb-3" role="alert">
     <%= success %>
-    <button
-      type="button"
-      class="btn-close"
-      data-bs-dismiss="alert"
-      aria-label="Close"
-    ></button>
+    <button class="delete" aria-label="Close"></button>
   </div>
   <% } %> <% if(error && error.length) { %>
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <div class="notification is-danger is-light mb-3" role="alert">
     <%= error %>
-    <button
-      type="button"
-      class="btn-close"
-      data-bs-dismiss="alert"
-      aria-label="Close"
-    ></button>
+    <button class="delete" aria-label="Close"></button>
   </div>
   <% } %>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    (document.querySelectorAll(".notification .delete") || []).forEach(
+      ($delete) => {
+        const $notification = $delete.parentNode;
+
+        $delete.addEventListener("click", () => {
+          $notification.parentNode.removeChild($notification);
+        });
+      }
+    );
+  });
+</script>
