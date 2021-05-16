@@ -38,6 +38,7 @@ const CampgroundSchema = new Schema(
         ref: "Review",
       },
     ],
+    rateAvg: Number,
   },
   opts
 );
