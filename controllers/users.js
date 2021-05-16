@@ -9,6 +9,14 @@ module.exports.registerUser = async (req, res) => {
     const { email, username, password } = req.body;
     const user = new User({ email, username });
     const registeredUser = await User.register(user, password);
+    const today = new Date();
+    const result = today.toLocaleDateString("en-GB", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    });
+    user.dateRegistered = result;
+    await user.save();
     req.login(registeredUser, (err) => {
       if (err) {
         return next(err);
@@ -42,6 +50,7 @@ module.exports.getProfilePage = async (req, res) => {
   const user = await User.findById(id)
     .populate("campgrounds")
     .populate("reviews");
+  console.log(user);
   res.render("users/profile", { user });
 };
 

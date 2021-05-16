@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 const passportLocalMongoose = require("passport-local-mongoose");
 
 const UserSchema = new Schema({
+  phoneNumber: String,
   email: {
     type: String,
     required: true,
@@ -15,6 +16,7 @@ const UserSchema = new Schema({
     },
   ],
   reviews: [{ type: Schema.Types.ObjectId, ref: "Review" }],
+  dateRegistered: String,
 });
 
 UserSchema.plugin(passportLocalMongoose);
