@@ -3,6 +3,19 @@
 <link rel="stylesheet" href="/stylesheets/stars.css" />
 <div id="map"></div>
 
+<div class="level-right" style="display: block;">
+  <div class="level-item">
+    <div class="field has-addons">
+      <p class="control">
+        <input class="input" type="text" placeholder="Find a post" />
+      </p>
+      <p class="control">
+        <button class="button">Search</button>
+      </p>
+    </div>
+  </div>
+</div>
+
 <div class="flex-container">
   <% for (let campground of campgrounds) { %>
   <div class="image flex-item">
@@ -34,7 +47,9 @@
         <p class="image__description" style="color: antiquewhite">
           <%= campground.location %>
         </p>
-        <p class="image__description"><%= campground.description.substring(0,150) %>...</p>
+        <p class="image__description">
+          <%= campground.description.substring(0,150) %>...
+        </p>
         <p class="image__description" style="color: bisque">
           <%= campground.dateCreated.toLocaleString() %>
         </p>
