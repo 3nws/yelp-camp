@@ -30,70 +30,7 @@
   text-decoration: none;
 }
 
-
-.image {
-  position: relative;
-  width: 400px;
-}
-
-.image__img {
-  display: block;
-  width: 100%;
-}
-
-.image__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  color: #ffffff;
-  font-family: "Quicksand", sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.25s;
-}
-
-.image__overlay--blur {
-  backdrop-filter: blur(5px);
-}
-
-.image__overlay--primary {
-  background: #212529;
-}
-
-.image__overlay > * {
-  transform: translateY(20px);
-  transition: transform 0.25s;
-}
-
-.image__overlay:hover {
-  opacity: 0.75;
-}
-
-.image__overlay:hover > * {
-  transform: translateY(0);
-}
-
-.image__title {
-  font-size: 2em;
-  font-weight: bold;
-}
-
-.image__description {
-  font-size: 1.25em;
-  margin-top: 0.25em;
-  margin-left: 1em;
-  text-align: center;
-  word-break: break-all;
-  margin-right: 1em;
-}
-
-.flex-container {
+.campgrounds-container {
   display: flex;
   flex-wrap: wrap;
   max-width: 75%;
@@ -101,25 +38,21 @@
   justify-content: center;
 }
 
-.flex-item {
-  margin: 3px 3px 3px 3px;
+.review-count {
+  font-size: 0.8rem;
+}
+
+.card {
+  max-width: 30%;
+  margin: 0 0.2em 1em 0.2em;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  min-width: 420px;
 }
 
 #yelpcamp-icon {
   margin: 0.4em -0.6em 0 1em;
 }
 
-.flex-item-link {
-  text-decoration: none;
-  font-weight: bold;
-  color: #ffffff;
-}
-
-.flex-item-link:hover {
-  text-decoration: none;
-  font-weight: bold;
-  color: #ffffff;
-}
 
 .campground-images {
   position: relative;

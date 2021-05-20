@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="/stylesheets/stars.css" />
 <div id="map"></div>
 
-<div class="level-right" style="display: block;">
+<div class="level-right" style="display: block">
   <div class="level-item">
     <div class="field has-addons">
       <p class="control">
@@ -16,45 +16,71 @@
   </div>
 </div>
 
-<div class="flex-container">
+<div class="campgrounds-container">
   <% for (let campground of campgrounds) { %>
-  <div class="image flex-item">
-    <% if(campground.images.length) { %>
-    <img class="image__img" src="<%= campground.images[0].url %>" alt="" />
-    <% } else { %>
-    <img class="image__img" src="" alt="" />
-    <% } %>
-    <a class="flex-item-link" href="/campgrounds/<%= campground._id %>">
-      <div class="image__overlay image__overlay--primary image__overlay--blur">
-        <div class="image__title"><%= campground.title %></div>
-        <p
-          class="starability-result"
-          data-rating="<%= Math.floor(campground.rateAvg) %>"
-        ></p>
-        <h6>
-          <% if(campground.reviews.length === 0) { %>
-          <span class="text-muted">No Reviews</span>
-          <% } else { %> <% if (campground.reviews.length === 1) { %>
-          <span class="text-muted"
-            ><%= campground.reviews.length %> Review</span
-          >
-          <% } else { %>
-          <span class="text-muted"
-            ><%= campground.reviews.length %> Reviews</span
-          >
-          <% } %> <% } %>
-        </h6>
-        <p class="image__description" style="color: antiquewhite">
-          <%= campground.location %>
-        </p>
-        <p class="image__description">
-          <%= campground.description.substring(0,150) %>...
-        </p>
-        <p class="image__description" style="color: bisque">
-          <%= campground.dateCreated.toLocaleString() %>
-        </p>
+  <div class="card">
+    <div class="card-image">
+      <% if(campground.images.length) { %>
+      <figure class="image is-4by3">
+        <a href="/campgrounds/<%= campground._id %>">
+          <img src="<%= campground.images[0].url %>" alt="" />
+        </a>
+      </figure>
+      <% } else { %>
+      <figure class="image is-4by3">
+        <a href="/campgrounds/<%= campground._id %>">
+          <img src="" alt="" />
+        </a>
+      </figure>
+      <% } %>
+    </div>
+    <div class="card-content">
+      <div class="media">
+        <div class="media-left">
+          <figure class="image is-48x48">
+            <a
+              class="no-decoration"
+              href="/profile/<%= campground.author._id %> "
+            >
+              <img src="<%= campground.author.avatarUrl %>" alt=""
+            /></a>
+          </figure>
+        </div>
+        <div class="media-content">
+          <p class="title is-4">
+            <a
+              class="no-decoration"
+              href="/profile/<%= campground.author._id %> "
+              ><%= campground.author.username %></a
+            >
+          </p>
+          <p class="subtitle is-6"><%= campground.location %></p>
+        </div>
       </div>
-    </a>
+      <h3 style="margin-top: -1em">
+        <a class="no-decoration" href="/campgrounds/<%= campground._id %>"
+          ><%= campground.title %>
+        </a>
+      </h3>
+      <h6
+        class="starability-result"
+        data-rating="<%= Math.floor(campground.rateAvg) %>"
+      ></h6>
+      <h6 class="review-count">
+        <% if(campground.reviews.length === 0) { %>
+        <span class="text-muted">No Reviews</span>
+        <% } else { %> <% if (campground.reviews.length === 1) { %>
+        <span class="text-muted"><%= campground.reviews.length %> Review</span>
+        <% } else { %>
+        <span class="text-muted"><%= campground.reviews.length %> Reviews</span>
+        <% } %> <% } %>
+      </h6>
+      <div class="content">
+        <%= campground.description.substring(0,150) %>...
+        <br />
+        <p class="text-muted"><%= campground.dateCreated.toLocaleString() %></p>
+      </div>
+    </div>
   </div>
   <% } %>
 </div>

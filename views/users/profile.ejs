@@ -31,9 +31,19 @@
       <% for (let campground of user.campgrounds) { %>
       <div class="card mb-3">
         <div class="card-image">
-          <figure class="image">
-            <img src="<%= campground.images[0].url %> " alt="" />
+          <% if(campground.images.length) { %>
+          <figure class="image is-4by3">
+            <a href="/campgrounds/<%= campground._id %>">
+              <img src="<%= campground.images[0].url %>" alt="" />
+            </a>
           </figure>
+          <% } else { %>
+          <figure class="image is-4by3">
+            <a href="/campgrounds/<%= campground._id %>">
+              <img src="" alt="" />
+            </a>
+          </figure>
+          <% } %>
         </div>
         <div class="card-content">
           <div class="media">
@@ -83,7 +93,8 @@
           <div class="content">
             <% if(review.body.length>150) { %>
             <p class="card-text">
-              Review: <%= review.body.substring(0,150) %><a style="color: blue; display: block; width:fit-content;"
+              Review: <%= review.body.substring(0,150) %><a
+                style="color: blue; display: block; width: fit-content"
                 >more</a
               >
             </p>

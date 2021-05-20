@@ -43,7 +43,7 @@
         <% } %>
       </div>
 
-      <div class="card mb-3">
+      <div class="card mb-3" style="max-width: 100%">
         <div class="card-body">
           <h5 class="card-title"><%= campground.title %></h5>
           <p class="starability-result" data-rating="<%= Math.floor(campground.rateAvg) %>"></p>
@@ -156,7 +156,7 @@
         <button class="button is-success">Submit</button>
       </form>
       <% } %> <% for(let review of campground.reviews) { %>
-      <div class="card mb-3">
+      <div class="card mb-3" style="max-width: 100%">
         <div class="card-body">
           <a class="no-decoration" href="/profile/<%= review.author._id %> "
                 > <h5 class="card-title"><%= review.author.username %></h5></a
