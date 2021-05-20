@@ -64,7 +64,11 @@
                 ><strong><%= campground.title %></strong></a
               >
             </p>
+            <% if (campground.description.length>150) { %> 
             <%= campground.description.substring(0,150) %>...
+            <% } else { %> 
+            <%= campground.description %> 
+            <% } %> 
             <br />
             <time datetime="2016-1-1"
               ><%= campground.dateCreated.toLocaleString() %></time
