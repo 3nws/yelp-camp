@@ -14,6 +14,8 @@ To install all the dependencies run `npm init`.
 
 Make sure mongo is running.
 
-And run `node app.js` or `nodemon app.js`.
+Run `node seeds/index.js` to add random campgrounds.
+
+Then run `node app.js` or `nodemon app.js`.
 
 Nodemon will restart the server everytime you make a change.
