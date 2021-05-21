@@ -49,10 +49,16 @@
   min-width: 420px;
 }
 
+.chungus-card:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
 #yelpcamp-icon {
   margin: 0.4em -0.6em 0 1em;
 }
-
 
 .campground-images {
   position: relative;
