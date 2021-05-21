@@ -76,6 +76,7 @@
         />
       </div>
       <br />
+      <% if(campground.images.length>0) { %> 
       <div class="mb-3">Delete?</div>
       <div class="mb-3" style="display: inline">
         <% campground.images.forEach(function(img, i) { %>
@@ -96,6 +97,7 @@
         <% })%>
       </div>
       <div class="clearfix"></div>
+      <% } %> 
       <div class="mb-3">
         <button class="button is-info">Update</button>
         <a
