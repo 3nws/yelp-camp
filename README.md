@@ -10,7 +10,7 @@ I am trying to implement whatever feature I can think of to better understand ba
 
 - Install Node [here](https://nodejs.org/en/).
 
-- To install all the dependencies run `npm install`.
+- Install all the dependencies run `npm install`.
 
 - Make sure mongo is running.
 
