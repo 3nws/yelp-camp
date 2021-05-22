@@ -8,6 +8,10 @@
   height: 50px;
 }
 
+.navbar {
+  background: transparent;
+}
+
 .navbar-item,
 .navbar-link {
   text-decoration: none;
