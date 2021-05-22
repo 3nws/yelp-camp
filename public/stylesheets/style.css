@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur");
+
+body {
+  font-family: "Vibur", cursive;
+  font-family: "Abel", sans-serif;
+}
+
 #fixedbutton {
   position: fixed;
   bottom: 0px;
