@@ -19,7 +19,9 @@
 }
 
 .footer {
-  padding-bottom: 3rem;
+  padding-bottom: 10px;
+  padding-top: 20px;
+  background: transparent;
 }
 
 .brand {
