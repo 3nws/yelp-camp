@@ -19,7 +19,7 @@ body {
   background: transparent;
 }
 
-.navbar-item:hover .navbar-link{
+.navbar-item:hover .navbar-link {
   background: transparent !important;
 }
 

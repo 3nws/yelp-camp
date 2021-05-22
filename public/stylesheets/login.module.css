@@ -16,7 +16,7 @@ body {
 }
 
 .navbar-link,
-.navbar-item{
+.navbar-item {
   color: #fad8a9;
 }
 
@@ -32,7 +32,7 @@ form {
   margin: 2% auto;
   box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
   padding: 2%;
-  background-image: linear-gradient(-205deg, #00d1b2 50%, #FAD6A5 50%);
+  background-image: linear-gradient(-205deg, #00d1b2 50%, #fad6a5 50%);
 }
 
 form .con {
@@ -187,4 +187,3 @@ button:hover {
     transform: translateY(5px);
   }
 }
-
