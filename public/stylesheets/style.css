@@ -19,9 +19,21 @@ body {
   background: transparent;
 }
 
+.navbar-item:hover .navbar-link{
+  background: transparent !important;
+}
+
+.navbar-dropdown,
 .navbar-item,
 .navbar-link {
   text-decoration: none;
+  background: transparent;
+}
+
+.navbar-link:hover,
+.navbar-item:hover {
+  color: #0cd3b5 !important;
+  background-color: transparent !important;
 }
 
 .no-decoration {

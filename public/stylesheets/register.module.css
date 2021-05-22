@@ -23,6 +23,15 @@ body {
   opacity: 0.95;
 }
 
+.navbar-link,
+.navbar-item{
+  color: #fad8a9;
+}
+
+.navbar-brand {
+  color: white;
+}
+
 #have-account {
   text-align: center;
   margin-top: 3%;
