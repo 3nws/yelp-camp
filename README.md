@@ -1,7 +1,7 @@
 This was a project for a web dev course taught by Colt Steele.
 YelpCamp was created using Node.js, Express, and MongoDB.
 
-I am trying to implement whatever feature I can think of to better understand back-end development.
+I am trying to implement whatever feature I can think of to expand upon this and better understand back-end development.
 
 
 # Getting Started
