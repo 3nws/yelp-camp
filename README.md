@@ -16,7 +16,7 @@ Install latest version of npm
   ```sh
   npm install npm@latest -g
   ```
-- Install MongoDB [here](https://docs.mongodb.com/manual/administration/install-community/). (You can use MongoDB Atlas if you want.)
+- Install MongoDB [here](https://docs.mongodb.com/manual/administration/install-community/). (You can instead use MongoDB Atlas if you want.)
 
 ### Installation
 - Clone the project
@@ -39,7 +39,7 @@ Install latest version of npm
   ```
   MAPBOX_TOKEN (Your Mapbox Token)
   ```
-- Make sure mongo is running locally. (You can also add another environment variable for a database url to use MongoDB Atlas)
+- Make sure mongo is running locally. (You can instead add another environment variable for a database url to use MongoDB Atlas)
 - Run `node seeds/index.js` to add random campgrounds.
 - Run `node app.js` or `nodemon app.js`.
 
