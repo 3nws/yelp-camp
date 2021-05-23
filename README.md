@@ -10,13 +10,13 @@ To get a local copy up and running follow these steps.
 
 ### Prerequisites
 
-Install latest version of npm
-
-- npm
+- Install latest version of npm
   ```sh
   npm install npm@latest -g
   ```
 - Install MongoDB [here](https://docs.mongodb.com/manual/administration/install-community/). (You can instead use MongoDB Atlas if you want.)
+- Sign up to [Cloudinary](https://cloudinary.com).
+- Sign up to [Mapbox](https://www.mapbox.com).
 
 ### Installation
 - Clone the project
@@ -24,8 +24,6 @@ Install latest version of npm
   git clone https://github.com/eneskurbetoglu/yelp-camp.git
   ```
 - Install all the dependencies by running `npm install`.
-- Sign up to [Cloudinary](https://cloudinary.com).
-- Sign up to [Mapbox](https://www.mapbox.com).
 - Add these environment variables to a .env file on your project root directory.
   ```
   CLOUDINARY_CLOUD_NAME (Your Cloudinary Cloud name)
