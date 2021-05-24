@@ -58,7 +58,7 @@ body {
 .campgrounds-container {
   display: flex;
   flex-wrap: wrap;
-  max-width: 75%;
+  max-width: 85%;
   margin: auto;
   justify-content: center;
 }
@@ -118,17 +118,24 @@ body {
   margin: auto;
 }
 
-
 @media only screen and (max-width: 1220px) {
-    .card {
-        min-width: 47%;
-        max-width: 47%;
-    }
+  .card {
+    min-width: 48.5%;
+    max-width: 48.5;
+  }
+
+  .campgrounds-container {
+    max-width: 90%;
+  }
 }
 
-@media only screen and (max-width: 875px) {
-    .card {
-        min-width: 80%;
-        max-width: 80%;
-    }
+@media only screen and (max-width: 675px) {
+  .card {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .campgrounds-container {
+    max-width: 90%;
+  }
 }
