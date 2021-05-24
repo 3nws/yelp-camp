@@ -1,0 +1,8 @@
+@media only screen and (max-width: 775px) {
+  .row,
+  .col-6 {
+    display: block !important;
+    margin: auto;
+    width: 90%;
+  }
+}
