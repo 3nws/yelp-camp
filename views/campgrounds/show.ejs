@@ -158,7 +158,7 @@
         </div>
         <button class="button is-success">Submit</button>
       </form>
-      <% } %> <% for(let review of campground.reviews) { %>
+      <% } %> <% for(let review of campground.reviews.reverse()) { %>
       <div class="card mb-3" style="max-width: 100%">
         <div class="card-body">
           <a class="no-decoration" href="/profile/<%= review.author._id %> "
