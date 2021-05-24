@@ -38,7 +38,7 @@ To get a local copy up and running follow these steps.
   ```
   MAPBOX_TOKEN (Your Mapbox Token)
   ```
-- Make sure mongo is running. (You can instead add another environment variable for a database url to use MongoDB Atlas)
+- Make sure mongo is running. (You can instead add another environment variable `DB_URL` for a database url to use MongoDB Atlas)
 - Run `node seeds/index.js` to add random campgrounds.
 - Run `node app.js` or `nodemon app.js`.
 
