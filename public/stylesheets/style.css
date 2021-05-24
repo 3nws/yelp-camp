@@ -68,10 +68,10 @@ body {
 }
 
 .card {
-  max-width: 30%;
   margin: 0 0.2em 1em 0.2em;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-  min-width: 420px;
+  min-width: 30%;
+  max-width: 30%;
 }
 
 .chungus-card:hover {
