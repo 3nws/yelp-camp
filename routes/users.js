@@ -2,18 +2,19 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const catchAsync = require("../utils/catchAsync");
-const { isLoggedIn } = require("../middleware"); // TODO ADD THIS LATER
+const { registerRouteHandler, logoutRouteHandler } = require("../middleware"); // TODO ADD THIS LATER
 const users = require("../controllers/users");
 
 router
   .route("/register")
-  .get(users.renderRegisterForm)
-  .post(catchAsync(users.registerUser));
+  .get(registerRouteHandler, users.renderRegisterForm)
+  .post(registerRouteHandler, catchAsync(users.registerUser));
 
 router
   .route("/login")
-  .get(users.renderLoginForm)
+  .get(registerRouteHandler, users.renderLoginForm)
   .post(
+    registerRouteHandler,
     passport.authenticate("local", {
       failureFlash: true,
       failureRedirect: "/login",
@@ -23,6 +24,6 @@ router
 
 router.get("/profile/:id", catchAsync(users.getProfilePage));
 
-router.get("/logout", users.logoutUser);
+router.get("/logout", logoutRouteHandler, users.logoutUser);
 
 module.exports = router;

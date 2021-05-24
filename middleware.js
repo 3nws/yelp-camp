@@ -21,6 +21,22 @@ module.exports.isLoggedIn = (req, res, next) => {
   next();
 };
 
+module.exports.registerRouteHandler = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    req.flash("error", "You are already logged in!");
+    return res.redirect("/campgrounds");
+  }
+  next();
+};
+
+module.exports.logoutRouteHandler = (req, res, next) => {
+  if (!req.isAuthenticated()) {
+    req.flash("error", "You are not logged in!");
+    return res.redirect("/login");
+  }
+  next();
+};
+
 module.exports.validateCampground = (req, res, next) => {
   const { error } = campgroundSchema.validate(req.body);
   if (error) {
