@@ -117,3 +117,18 @@ body {
   width: 75%;
   margin: auto;
 }
+
+
+@media only screen and (max-width: 1220px) {
+    .card {
+        min-width: 47%;
+        max-width: 47%;
+    }
+}
+
+@media only screen and (max-width: 875px) {
+    .card {
+        min-width: 80%;
+        max-width: 80%;
+    }
+}
