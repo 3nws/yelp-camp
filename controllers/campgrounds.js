@@ -13,15 +13,18 @@ function escapeRegex(text) {
 module.exports.index = async (req, res, next) => {
   if (req.query.search && !req.xhr) {
     const regex = new RegExp(escapeRegex(req.query.search), "gi");
-    Campground.find({ title: regex }, function (err, allCampgrounds) {
-      if (err) {
-        console.log(err);
-      } else {
-        res.render("campgrounds/index", {
-          campgrounds: allCampgrounds,
-        });
+    Campground.find(
+      { $or: [{ title: regex }, { location: regex }] },
+      function (err, allCampgrounds) {
+        if (err) {
+          console.log(err);
+        } else {
+          res.render("campgrounds/index", {
+            campgrounds: allCampgrounds,
+          });
+        }
       }
-    }).populate("author");
+    ).populate("author");
   } else if (req.query.sortby) {
     if (req.query.sortby === "rateAvg") {
       Campground.find({})
