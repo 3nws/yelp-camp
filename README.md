@@ -49,7 +49,6 @@ Nodemon will restart the server everytime you make a change.
 - Filtering and sorting for campgrounds and reviews.
 - Auth via google.
 - Editing users.
-- Searching for campgrounds.
 - Paginating the index page and the show page for campgrounds and reviews respectively.
 - 'More' link on long descriptions and review bodies to see the rest of them.
 - Resetting password.
