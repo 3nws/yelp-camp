@@ -3,6 +3,11 @@
   .col-6 {
     display: block !important;
     margin: auto;
-    width: 90%;
+    width: 95%;
   }
+  
+  .width-75 {
+  width: 100%;
+  margin: auto;
+}
 }
