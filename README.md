@@ -44,7 +44,7 @@ To get a local copy up and running follow these steps.
 
 Nodemon will restart the server everytime you make a change.
 
-### TODO
+# TODO
 
 - Filtering and sorting for campgrounds and reviews.
 - Auth via google.
