@@ -3,55 +3,81 @@
 <link rel="stylesheet" href="/stylesheets/index.module.css" />
 <div id="map"></div>
 
-<div id="navBrrr" class="navbar-menu width-75 mb-5 filters-search">
-  <div class="navbar-start">
-    <div class="navbar-item has-dropdown is-hoverable">
-      <a class="navbar-link"> Sort By </a>
-
-      <div class="navbar-dropdown">
-        <form class="sortForm" action="/campgrounds" method="GET">
-          <input type="text" name="sortby" value="rateAvg" class="d-none" />
-          <button type="submit" class="dropdown-item">Highest Rated</button>
-        </form>
-        <form class="sortForm" action="/campgrounds" method="GET">
-          <input type="text" name="sortby" value="total" class="d-none" />
-          <button type="submit" class="dropdown-item">Most Reviewed</button>
-        </form>
-        <form class="sortForm" action="/campgrounds" method="GET">
-          <input type="text" name="sortby" value="priceLow" class="d-none" />
-          <button type="submit" class="dropdown-item">Price Descending</button>
-        </form>
-        <form class="sortForm" action="/campgrounds" method="GET">
-          <input type="text" name="sortby" value="priceHigh" class="d-none" />
-          <button type="submit" class="dropdown-item">Price Ascending</button>
-        </form>
-        <a href="/campgrounds" href class="dropdown-item">Reset</a>
-      </div>
-    </div>
-    <div class="field">
-      <div class="control has-icons-right">
-        <form
-          action="/campgrounds"
-          method="GET"
-          class="form-inline"
-          id="campground-search"
-        >
-          <div class="form-group">
-            <input
-              type="text"
-              name="search"
-              placeholder="Search for a Campground"
-              class="form-control"
-            />
-            <span class="icon is-small is-right">
-              <i class="fa fa-search" aria-hidden="true"></i>
-            </span>
+<nav
+  id="searchNav"
+  class="navbar navbar-expand navbar-light bg-white mb-5"
+>
+  <div class="container">
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Sort By
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <form class="sortForm" action="/campgrounds" method="GET">
+              <input type="text" name="sortby" value="rateAvg" class="d-none" />
+              <button type="submit" class="dropdown-item">Highest Rated</button>
+            </form>
+            <form class="sortForm" action="/campgrounds" method="GET">
+              <input
+                type="text"
+                name="sortby"
+                value="total"
+                class="d-none"
+              />
+              <button type="submit" class="dropdown-item">Most Reviewed</button>
+            </form>
+            <form class="sortForm" action="/campgrounds" method="GET">
+              <input
+                type="text"
+                name="sortby"
+                value="priceLow"
+                class="d-none"
+              />
+              <button type="submit" class="dropdown-item">Price Descending</button>
+            </form>
+            <form class="sortForm" action="/campgrounds" method="GET">
+              <input
+                type="text"
+                name="sortby"
+                value="priceHigh"
+                class="d-none"
+              />
+              <button type="submit" class="dropdown-item">Price Ascending</button>
+            </form>
+            <a href="/campgrounds" href class="dropdown-item">Reset</a>
+          </ul>
+        </li>
+      </ul>
+      <div class="d-md-block">
+        <form action="/campgrounds" method="GET" class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            type="text"
+            name="search"
+            placeholder="Search Campgrounds..."
+            aria-label="Search"
+          />
+          <div class="input-group-append">
+            <button class="btn" type="submit">
+              <i class="fa fa-search"></i>
+            </button>
           </div>
         </form>
       </div>
     </div>
   </div>
-</div>
+</nav>
 
 <div class="campgrounds-container">
   <% for (let campground of campgrounds.reverse()) { %>
