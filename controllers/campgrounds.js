@@ -10,19 +10,22 @@ function escapeRegex(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 }
 
-function paginationHandler(campgrounds) {
-  return {
-    campgrounds: campgrounds.reverse(),
-    num_of_pages: campgrounds.length / 20,
-  };
-}
-
 module.exports.renderFullMap = async (req, res, next) => {
   const campgrounds = await Campground.find({});
   res.render("campgrounds/map", { campgrounds });
 };
 
 module.exports.index = async (req, res, next) => {
+  const pageNumber = req.query.page || 1;
+
+  function paginationHandler(campgrounds) {
+    return {
+      campgrounds: campgrounds.reverse(),
+      num_of_pages: campgrounds.length / 20,
+      pageNumber,
+    };
+  }
+  
   if (req.query.search && !req.xhr) {
     const regex = new RegExp(escapeRegex(req.query.search), "gi");
     Campground.find(
@@ -104,6 +107,7 @@ module.exports.index = async (req, res, next) => {
               .reverse()
               .slice(20 * (pageNumber - 1), 20 * pageNumber + 1),
             num_of_pages: allCampgrounds.length / 20,
+            pageNumber,
           });
         }
       });
@@ -118,6 +122,7 @@ module.exports.index = async (req, res, next) => {
           res.render("campgrounds/index", {
             campgrounds: allCampgrounds.reverse().slice(0, 20 + 1),
             num_of_pages: allCampgrounds.length / 20,
+            pageNumber,
           });
         }
       }
