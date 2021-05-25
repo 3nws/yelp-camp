@@ -17,6 +17,11 @@ function paginationHandler(campgrounds) {
   };
 }
 
+module.exports.renderFullMap = async (req, res, next) => {
+  const campgrounds = await Campground.find({});
+  res.render("campgrounds/map", { campgrounds });
+};
+
 module.exports.index = async (req, res, next) => {
   if (req.query.search && !req.xhr) {
     const regex = new RegExp(escapeRegex(req.query.search), "gi");
@@ -111,7 +116,7 @@ module.exports.index = async (req, res, next) => {
           res.json(allCampgrounds);
         } else {
           res.render("campgrounds/index", {
-            campgrounds: allCampgrounds.reverse(),
+            campgrounds: allCampgrounds.reverse().slice(0, 20 + 1),
             num_of_pages: allCampgrounds.length / 20,
           });
         }

@@ -19,6 +19,8 @@ router
 
 router.get("/new", isLoggedIn, campgrounds.renderNewCampgroundForm);
 
+router.get("/full-map", campgrounds.renderFullMap);
+
 router
   .route("/:id")
   .get(catchAsync(campgrounds.viewCampground))
