@@ -21,6 +21,7 @@ module.exports.index = async (req, res, next) => {
         } else {
           res.render("campgrounds/index", {
             campgrounds: allCampgrounds.reverse(),
+            num_of_pages: allCampgrounds.length / 20,
           });
         }
       }
@@ -38,6 +39,7 @@ module.exports.index = async (req, res, next) => {
           } else {
             res.render("campgrounds/index", {
               campgrounds: allCampgrounds.reverse(),
+              num_of_pages: allCampgrounds.length / 20,
             });
           }
         });
@@ -53,6 +55,7 @@ module.exports.index = async (req, res, next) => {
           } else {
             res.render("campgrounds/index", {
               campgrounds: allCampgrounds.reverse(),
+              num_of_pages: allCampgrounds.length / 20,
             });
           }
         });
@@ -69,6 +72,7 @@ module.exports.index = async (req, res, next) => {
           } else {
             res.render("campgrounds/index", {
               campgrounds: allCampgrounds.reverse(),
+              num_of_pages: allCampgrounds.length / 20,
             });
           }
         });
@@ -85,60 +89,27 @@ module.exports.index = async (req, res, next) => {
           } else {
             res.render("campgrounds/index", {
               campgrounds: allCampgrounds.reverse(),
+              num_of_pages: allCampgrounds.length / 20,
             });
           }
         });
     }
   } else if (req.query.page) {
-    if (req.query.page === "1") {
-      Campground.find({})
-        .populate("author")
-        .exec(function (err, allCampgrounds) {
-          if (err) {
-            console.log(err);
-          } else {
-            res.render("campgrounds/index", {
-              campgrounds: allCampgrounds.reverse().slice(0, 20 + 1),
-            });
-          }
-        });
-    } else if (req.query.page === "2") {
-      Campground.find({})
-        .populate("author")
-        .exec(function (err, allCampgrounds) {
-          if (err) {
-            console.log(err);
-          } else {
-            res.render("campgrounds/index", {
-              campgrounds: allCampgrounds.reverse().slice(21, 40 + 1),
-            });
-          }
-        });
-    } else if (req.query.page === "3") {
-      Campground.find({})
-        .populate("author")
-        .exec(function (err, allCampgrounds) {
-          if (err) {
-            console.log(err);
-          } else {
-            res.render("campgrounds/index", {
-              campgrounds: allCampgrounds.reverse().slice(41, 60 + 1),
-            });
-          }
-        });
-    } else if (req.query.page === "4") {
-      Campground.find({})
-        .populate("author")
-        .exec(function (err, allCampgrounds) {
-          if (err) {
-            console.log(err);
-          } else {
-            res.render("campgrounds/index", {
-              campgrounds: allCampgrounds.reverse().slice(61, 80 + 1),
-            });
-          }
-        });
-    }
+    const pageNumber = req.query.page;
+    Campground.find({})
+      .populate("author")
+      .exec(function (err, allCampgrounds) {
+        if (err) {
+          console.log(err);
+        } else {
+          res.render("campgrounds/index", {
+            campgrounds: allCampgrounds
+              .reverse()
+              .slice(20 * (pageNumber - 1), 20 * pageNumber + 1),
+            num_of_pages: allCampgrounds.length / 20,
+          });
+        }
+      });
   } else {
     Campground.find({}, function (err, allCampgrounds) {
       if (err) {
@@ -149,6 +120,7 @@ module.exports.index = async (req, res, next) => {
         } else {
           res.render("campgrounds/index", {
             campgrounds: allCampgrounds.reverse().slice(0, 20 + 1),
+            num_of_pages: allCampgrounds.length / 20,
           });
         }
       }
