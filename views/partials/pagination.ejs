@@ -1,8 +1,8 @@
 <div class="width-75 mb-5" style="text-align: center">
-<% for (i = 0, len = num_of_pages; i < len; ++i) { %> 
-  <form class="pagination d-inline m-auto" action="/campgrounds" method="GET">
+  <% for (i = 0, len = num_of_pages; i < len; ++i) { %>
+  <form class="d-inline m-auto" action="/campgrounds" method="GET">
     <input type="text" name="page" value="<%= (i+1) %>" class="d-none" />
-    <button type="submit" class="button d-inline"><%= i+1 %></button>
+    <button type="submit" class="button d-inline"><%= (i+1) %></button>
   </form>
-<% } %> 
+  <% } %>
 </div>
