@@ -19,7 +19,6 @@ module.exports.index = async (req, res, next) => {
       } else {
         res.render("campgrounds/index", {
           campgrounds: allCampgrounds,
-          page: "campgrounds",
         });
       }
     }).populate("author");
