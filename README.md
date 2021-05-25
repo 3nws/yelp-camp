@@ -43,3 +43,12 @@ To get a local copy up and running follow these steps.
 - Run `node app.js` or `nodemon app.js`.
 
 Nodemon will restart the server everytime you make a change.
+
+### TODO
+
+- Filtering and sorting for campgrounds and reviews.
+- Auth via google.
+- Editing users.
+- Searching for campgrounds.
+- Paginating the index page and the show page for campgrounds and reviews respectively.
+- 'More' link on long description and review bodies to see the rest of them.
