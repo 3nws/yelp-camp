@@ -35,6 +35,25 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
+        <div class="d-md-block">
+          <form action="/campgrounds" method="GET" class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              type="text"
+              name="search"
+              placeholder="Search Campgrounds..."
+              aria-label="Search"
+            />
+            <div class="input-group-append">
+              <button class="btn" type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="navbar-item">
         <div class="buttons">
           <% if(loggedUser) { %>
           <a href="/profile/<%= loggedUser._id %> " class="button is-info"
