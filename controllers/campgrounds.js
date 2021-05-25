@@ -20,7 +20,7 @@ module.exports.index = async (req, res, next) => {
           console.log(err);
         } else {
           res.render("campgrounds/index", {
-            campgrounds: allCampgrounds,
+            campgrounds: allCampgrounds.reverse(),
           });
         }
       }
@@ -36,7 +36,7 @@ module.exports.index = async (req, res, next) => {
             console.log(err);
           } else {
             res.render("campgrounds/index", {
-              campgrounds: allCampgrounds,
+              campgrounds: allCampgrounds.reverse(),
             });
           }
         });
@@ -50,7 +50,7 @@ module.exports.index = async (req, res, next) => {
             console.log(err);
           } else {
             res.render("campgrounds/index", {
-              campgrounds: allCampgrounds,
+              campgrounds: allCampgrounds.reverse(),
             });
           }
         });
@@ -65,7 +65,7 @@ module.exports.index = async (req, res, next) => {
             console.log(err);
           } else {
             res.render("campgrounds/index", {
-              campgrounds: allCampgrounds,
+              campgrounds: allCampgrounds.reverse(),
             });
           }
         });
@@ -80,7 +80,7 @@ module.exports.index = async (req, res, next) => {
             console.log(err);
           } else {
             res.render("campgrounds/index", {
-              campgrounds: allCampgrounds,
+              campgrounds: allCampgrounds.reverse(),
             });
           }
         });
@@ -94,7 +94,7 @@ module.exports.index = async (req, res, next) => {
           res.json(allCampgrounds);
         } else {
           res.render("campgrounds/index", {
-            campgrounds: allCampgrounds,
+            campgrounds: allCampgrounds.reverse(),
           });
         }
       }
