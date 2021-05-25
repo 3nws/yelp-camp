@@ -31,6 +31,7 @@ module.exports.index = async (req, res, next) => {
         .sort({
           rateAvg: 1,
         })
+        .populate("author")
         .exec(function (err, allCampgrounds) {
           if (err) {
             console.log(err);
@@ -45,6 +46,7 @@ module.exports.index = async (req, res, next) => {
         .sort({
           total: 1,
         })
+        .populate("author")
         .exec(function (err, allCampgrounds) {
           if (err) {
             console.log(err);
@@ -60,6 +62,7 @@ module.exports.index = async (req, res, next) => {
           price: 1,
           rateAvg: -1,
         })
+        .populate("author")
         .exec(function (err, allCampgrounds) {
           if (err) {
             console.log(err);
@@ -75,12 +78,63 @@ module.exports.index = async (req, res, next) => {
           price: -1,
           rateAvg: -1,
         })
+        .populate("author")
         .exec(function (err, allCampgrounds) {
           if (err) {
             console.log(err);
           } else {
             res.render("campgrounds/index", {
               campgrounds: allCampgrounds.reverse(),
+            });
+          }
+        });
+    }
+  } else if (req.query.page) {
+    if (req.query.page === "1") {
+      Campground.find({})
+        .populate("author")
+        .exec(function (err, allCampgrounds) {
+          if (err) {
+            console.log(err);
+          } else {
+            res.render("campgrounds/index", {
+              campgrounds: allCampgrounds.reverse().slice(0, 20 + 1),
+            });
+          }
+        });
+    } else if (req.query.page === "2") {
+      Campground.find({})
+        .populate("author")
+        .exec(function (err, allCampgrounds) {
+          if (err) {
+            console.log(err);
+          } else {
+            res.render("campgrounds/index", {
+              campgrounds: allCampgrounds.reverse().slice(21, 40 + 1),
+            });
+          }
+        });
+    } else if (req.query.page === "3") {
+      Campground.find({})
+        .populate("author")
+        .exec(function (err, allCampgrounds) {
+          if (err) {
+            console.log(err);
+          } else {
+            res.render("campgrounds/index", {
+              campgrounds: allCampgrounds.reverse().slice(41, 60 + 1),
+            });
+          }
+        });
+    } else if (req.query.page === "4") {
+      Campground.find({})
+        .populate("author")
+        .exec(function (err, allCampgrounds) {
+          if (err) {
+            console.log(err);
+          } else {
+            res.render("campgrounds/index", {
+              campgrounds: allCampgrounds.reverse().slice(61, 80 + 1),
             });
           }
         });

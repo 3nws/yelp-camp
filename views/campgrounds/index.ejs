@@ -3,10 +3,7 @@
 <link rel="stylesheet" href="/stylesheets/index.module.css" />
 <div id="map"></div>
 
-<nav
-  id="searchNav"
-  class="navbar navbar-expand navbar-light bg-white mb-5"
->
+<nav id="searchNav" class="navbar navbar-expand navbar-light bg-white mb-5">
   <div class="container">
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav mr-auto">
@@ -28,12 +25,7 @@
               <button type="submit" class="dropdown-item">Highest Rated</button>
             </form>
             <form class="sortForm" action="/campgrounds" method="GET">
-              <input
-                type="text"
-                name="sortby"
-                value="total"
-                class="d-none"
-              />
+              <input type="text" name="sortby" value="total" class="d-none" />
               <button type="submit" class="dropdown-item">Most Reviewed</button>
             </form>
             <form class="sortForm" action="/campgrounds" method="GET">
@@ -43,7 +35,9 @@
                 value="priceLow"
                 class="d-none"
               />
-              <button type="submit" class="dropdown-item">Price Descending</button>
+              <button type="submit" class="dropdown-item">
+                Price Descending
+              </button>
             </form>
             <form class="sortForm" action="/campgrounds" method="GET">
               <input
@@ -52,7 +46,9 @@
                 value="priceHigh"
                 class="d-none"
               />
-              <button type="submit" class="dropdown-item">Price Ascending</button>
+              <button type="submit" class="dropdown-item">
+                Price Ascending
+              </button>
             </form>
             <a href="/campgrounds" href class="dropdown-item">Reset</a>
           </ul>
@@ -78,6 +74,8 @@
     </div>
   </div>
 </nav>
+
+<% include ../partials/pagination %>
 
 <div class="campgrounds-container">
   <% for (let campground of campgrounds) { %>
@@ -150,6 +148,8 @@
   </div>
   <% } %>
 </div>
+
+<div class="mt-4"><% include ../partials/pagination %></div>
 
 <% if(loggedUser) { %>
 <a href="/campgrounds/new"
