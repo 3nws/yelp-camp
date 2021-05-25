@@ -10,14 +10,10 @@ function escapeRegex(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 }
 
-// test 1
-
 module.exports.renderFullMap = async (req, res, next) => {
   const campgrounds = await Campground.find({});
   res.render("campgrounds/map", { campgrounds });
 };
-
-// test 2
 
 module.exports.index = async (req, res, next) => {
   const pageNumber = req.query.page || 1;
