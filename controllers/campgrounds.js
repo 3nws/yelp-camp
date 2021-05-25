@@ -148,7 +148,7 @@ module.exports.index = async (req, res, next) => {
           res.json(allCampgrounds);
         } else {
           res.render("campgrounds/index", {
-            campgrounds: allCampgrounds.reverse(),
+            campgrounds: allCampgrounds.reverse().slice(0, 20 + 1),
           });
         }
       }
