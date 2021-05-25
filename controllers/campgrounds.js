@@ -13,7 +13,7 @@ function escapeRegex(text) {
 module.exports.index = async (req, res, next) => {
   if (req.query.search && !req.xhr) {
     const regex = new RegExp(escapeRegex(req.query.search), "gi");
-    await Campground.find({ title: regex }, function (err, allCampgrounds) {
+    Campground.find({ title: regex }, function (err, allCampgrounds) {
       if (err) {
         console.log(err);
       } else {
@@ -22,8 +22,68 @@ module.exports.index = async (req, res, next) => {
         });
       }
     }).populate("author");
+  } else if (req.query.sortby) {
+    if (req.query.sortby === "rateAvg") {
+      Campground.find({})
+        .sort({
+          rateAvg: 1,
+        })
+        .exec(function (err, allCampgrounds) {
+          if (err) {
+            console.log(err);
+          } else {
+            res.render("campgrounds/index", {
+              campgrounds: allCampgrounds,
+            });
+          }
+        });
+    } else if (req.query.sortby === "total") {
+      Campground.find({})
+        .sort({
+          total: 1,
+        })
+        .exec(function (err, allCampgrounds) {
+          if (err) {
+            console.log(err);
+          } else {
+            res.render("campgrounds/index", {
+              campgrounds: allCampgrounds,
+            });
+          }
+        });
+    } else if (req.query.sortby === "priceLow") {
+      Campground.find({})
+        .sort({
+          price: 1,
+          rateAvg: -1,
+        })
+        .exec(function (err, allCampgrounds) {
+          if (err) {
+            console.log(err);
+          } else {
+            res.render("campgrounds/index", {
+              campgrounds: allCampgrounds,
+            });
+          }
+        });
+    } else {
+      Campground.find({})
+        .sort({
+          price: -1,
+          rateAvg: -1,
+        })
+        .exec(function (err, allCampgrounds) {
+          if (err) {
+            console.log(err);
+          } else {
+            res.render("campgrounds/index", {
+              campgrounds: allCampgrounds,
+            });
+          }
+        });
+    }
   } else {
-    await Campground.find({}, function (err, allCampgrounds) {
+    Campground.find({}, function (err, allCampgrounds) {
       if (err) {
         console.log(err);
       } else {

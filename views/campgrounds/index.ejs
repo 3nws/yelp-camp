@@ -1,27 +1,55 @@
 <% layout('layouts/boilerplate.ejs') %>
 <link rel="stylesheet" href="/stylesheets/stars.css" />
+<link rel="stylesheet" href="/stylesheets/index.module.css" />
 <div id="map"></div>
 
-<div class="field width-75">
-  <div class="control has-icons-right">
-    <form
-      action="/campgrounds"
-      method="GET"
-      class="form-inline"
-      id="campground-search"
-    >
-      <div class="form-group">
-        <input
-          type="text"
-          name="search"
-          placeholder="Search for a Campground"
-          class="form-control"
-        />
-        <span class="icon is-small is-right">
-          <i class="fa fa-search" aria-hidden="true"></i>
-        </span>
+<div id="navBrrr" class="navbar-menu width-75 mb-5 filters-search">
+  <div class="navbar-start">
+    <div class="navbar-item has-dropdown is-hoverable">
+      <a class="navbar-link"> Sort By </a>
+
+      <div class="navbar-dropdown">
+        <form class="sortForm" action="/campgrounds" method="GET">
+          <input type="text" name="sortby" value="rateAvg" class="d-none" />
+          <button type="submit" class="dropdown-item">Highest Rated</button>
+        </form>
+        <form class="sortForm" action="/campgrounds" method="GET">
+          <input type="text" name="sortby" value="total" class="d-none" />
+          <button type="submit" class="dropdown-item">Most Reviewed</button>
+        </form>
+        <form class="sortForm" action="/campgrounds" method="GET">
+          <input type="text" name="sortby" value="priceLow" class="d-none" />
+          <button type="submit" class="dropdown-item">Price Descending</button>
+        </form>
+        <form class="sortForm" action="/campgrounds" method="GET">
+          <input type="text" name="sortby" value="priceHigh" class="d-none" />
+          <button type="submit" class="dropdown-item">Price Ascending</button>
+        </form>
+        <a href="/campgrounds" href class="dropdown-item">Reset</a>
       </div>
-    </form>
+    </div>
+    <div class="field">
+      <div class="control has-icons-right">
+        <form
+          action="/campgrounds"
+          method="GET"
+          class="form-inline"
+          id="campground-search"
+        >
+          <div class="form-group">
+            <input
+              type="text"
+              name="search"
+              placeholder="Search for a Campground"
+              class="form-control"
+            />
+            <span class="icon is-small is-right">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -70,6 +98,7 @@
         <a class="no-decoration" href="/campgrounds/<%= campground._id %>"
           ><%= campground.title %>
         </a>
+        <p class="d-inline">(<%= campground.price %>$/night)</p>
       </h3>
       <h6
         class="starability-result"
