@@ -118,6 +118,12 @@ body {
   margin: auto;
 }
 
+@media only screen and (max-width: 1024px) {
+  .navbar-menu {
+    margin-right: 56%;
+  }
+}
+
 @media only screen and (max-width: 1220px) {
   .card {
     min-width: 48.5%;
