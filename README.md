@@ -46,7 +46,7 @@ Nodemon will restart the server everytime you make a change.
 
 # TODO
 
-- Filtering and sorting for campgrounds and reviews.
+- Filtering and sorting reviews.
 - Auth via google.
 - Editing users.
 - Paginating the index page and the show page for campgrounds and reviews respectively.
