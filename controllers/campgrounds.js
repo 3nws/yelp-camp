@@ -15,6 +15,8 @@ module.exports.renderFullMap = async (req, res, next) => {
   res.render("campgrounds/map", { campgrounds });
 };
 
+// test 2
+
 module.exports.index = async (req, res, next) => {
   const pageNumber = req.query.page || 1;
 
