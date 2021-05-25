@@ -2,16 +2,26 @@
 <link rel="stylesheet" href="/stylesheets/stars.css" />
 <div id="map"></div>
 
-<div class="level-right mb-4" style="display: block">
-  <div class="level-item">
-    <div class="field has-addons">
-      <p class="control">
-        <input class="input" type="text" placeholder="Find a post" />
-      </p>
-      <p class="control">
-        <button class="button">Search</button>
-      </p>
-    </div>
+<div class="field width-75">
+  <div class="control has-icons-right">
+    <form
+      action="/campgrounds"
+      method="GET"
+      class="form-inline"
+      id="campground-search"
+    >
+      <div class="form-group">
+        <input
+          type="text"
+          name="search"
+          placeholder="Search for a Campground"
+          class="form-control"
+        />
+        <span class="icon is-small is-right">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </span>
+      </div>
+    </form>
   </div>
 </div>
 
@@ -75,11 +85,9 @@
         <% } %> <% } %>
       </h6>
       <div class="content">
-        <% if (campground.description.length>150) { %> 
-        <%= campground.description.substring(0,150) %>...
-        <% } else { %> 
-        <%= campground.description %> 
-        <% } %> 
+        <% if (campground.description.length>150) { %> <%=
+        campground.description.substring(0,150) %>... <% } else { %> <%=
+        campground.description %> <% } %>
         <br />
         <p class="text-muted"><%= campground.dateCreated.toLocaleString() %></p>
       </div>

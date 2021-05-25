@@ -6,9 +6,38 @@ const mbxToken = process.env.MAPBOX_TOKEN;
 
 const geocoder = mbxGeocoding({ accessToken: mbxToken });
 
+function escapeRegex(text) {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+}
+
 module.exports.index = async (req, res, next) => {
-  const campgrounds = await Campground.find({}).populate("author");
-  res.render("campgrounds/index", { campgrounds });
+  if (req.query.search && !req.xhr) {
+    const regex = new RegExp(escapeRegex(req.query.search), "gi");
+    await Campground.find({ title: regex }, function (err, allCampgrounds) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render("campgrounds/index", {
+          campgrounds: allCampgrounds,
+          page: "campgrounds",
+        });
+      }
+    }).populate("author");
+  } else {
+    await Campground.find({}, function (err, allCampgrounds) {
+      if (err) {
+        console.log(err);
+      } else {
+        if (req.xhr) {
+          res.json(allCampgrounds);
+        } else {
+          res.render("campgrounds/index", {
+            campgrounds: allCampgrounds,
+          });
+        }
+      }
+    }).populate("author");
+  }
 };
 
 module.exports.renderNewCampgroundForm = (req, res) => {
