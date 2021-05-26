@@ -5,6 +5,7 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const UserSchema = new Schema({
   phoneNumber: String,
   avatarUrl: { type: String, default: "https://i.ibb.co/5nsGfgk/default-Avatar.png" },
+  username: String,
   email: {
     type: String,
     required: true,
