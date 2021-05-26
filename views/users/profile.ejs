@@ -1,5 +1,5 @@
 <% layout('layouts/boilerplate') %>
-<link rel="stylesheet" href="/stylesheets/profile.module.css">
+<link rel="stylesheet" href="/stylesheets/profile.module.css" />
 
 <div class="row width-75">
   <div class="col-6">
@@ -65,12 +65,11 @@
                 ><strong><%= campground.title %></strong></a
               >
             </p>
+            <p class="subtitle is-6"><%= campground.location %></p>
             <!-- TODO add more link to see the rest of the description -->
-            <% if (campground.description.length>150) { %> 
-            <%= campground.description.substring(0,150) %>...
-            <% } else { %> 
-            <%= campground.description %> 
-            <% } %> 
+            <% if (campground.description.length>150) { %> <%=
+            campground.description.substring(0,150) %>... <% } else { %> <%=
+            campground.description %> <% } %>
             <br />
             <time datetime="2016-1-1"
               ><%= campground.dateCreated.toLocaleString() %></time
