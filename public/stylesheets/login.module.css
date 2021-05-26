@@ -158,6 +158,11 @@ header p {
 .log-in:hover {
   animation: ani9 0.4s ease-in-out infinite alternate;
 }
+
+.fa-search {
+  color: #fad8a9;
+}
+
 @keyframes ani9 {
   0% {
     transform: translateY(3px);
