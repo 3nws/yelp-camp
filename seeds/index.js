@@ -29,8 +29,11 @@ const seedDB = async () => {
   await Campground.deleteMany({});
   await User.deleteMany({});
   await Review.deleteMany({});
-  const seedsUser = new User({ email:"seedsUser1@gmail.com", username:"eneseed"});
-  await User.register(seedsUser, "123");
+  const seedsUser = new User({
+    email: "seedsUser1@gmail.com",
+    username: "eneseed",
+  });
+  await User.register(seedsUser, process.env.SEED_USER_PASS);
   for (let i = 0; i < 200; i++) {
     const random1000 = Math.floor(Math.random() * 1000);
     const price = Math.floor(Math.random() * 20) + 10;
