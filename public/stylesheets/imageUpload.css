@@ -56,20 +56,6 @@
   transition: all 0.2s ease-in-out;
 }
 
-.uploader #response {
-  float: left;
-  clear: both;
-  width: 100%;
-}
-
-.uploader #response.hidden {
-  display: none;
-}
-
-.uploader #response #messages {
-  margin-bottom: 0.5rem;
-}
-
 .uploader #file-image {
   display: inline;
   margin: 0 auto 0.5rem auto;
@@ -91,42 +77,6 @@
 
 .uploader #notimage.hidden {
   display: none;
-}
-
-.uploader progress,
-.uploader .progress {
-  display: inline;
-  clear: both;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 180px;
-  height: 8px;
-  border: 0;
-  border-radius: 4px;
-  background-color: #eee;
-  overflow: hidden;
-}
-
-.uploader .progress[value]::-webkit-progress-bar {
-  border-radius: 4px;
-  background-color: #eee;
-}
-
-.uploader .progress[value]::-webkit-progress-value {
-  background: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(#393f90),
-    color-stop(50%, #454cad)
-  );
-  background: linear-gradient(to right, #393f90 0%, #454cad 50%);
-  border-radius: 4px;
-}
-
-.uploader .progress[value]::-moz-progress-bar {
-  background: linear-gradient(to right, #393f90 0%, #454cad 50%);
-  border-radius: 4px;
 }
 
 .uploader input[type="file"] {
