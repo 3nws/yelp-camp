@@ -5,9 +5,13 @@
     margin: auto;
     width: 95%;
   }
-  
+
   .width-75 {
-  width: 100%;
-  margin: auto;
+    width: 100%;
+    margin: auto;
+  }
 }
+
+.showMore .addText {
+  display: none;
 }
