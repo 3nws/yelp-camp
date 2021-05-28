@@ -139,8 +139,12 @@
       </h6>
       <div class="content">
         <% if (campground.description.length>150) { %> <%=
-        campground.description.substring(0,150) %>... <% } else { %> <%=
-        campground.description %> <% } %>
+        campground.description.substring(0,150) %><a
+          style="text-decoration: none"
+          href="/campgrounds/<%= campground._id %>"
+          >...</a
+        >
+        <% } else { %> <%= campground.description %> <% } %>
         <br />
         <p class="text-muted"><%= campground.dateCreated.toLocaleString() %></p>
       </div>
