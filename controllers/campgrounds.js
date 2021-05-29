@@ -25,7 +25,7 @@ module.exports.index = async (req, res, next) => {
       pageNumber,
     };
   }
-  
+
   if (req.query.search && !req.xhr) {
     const regex = new RegExp(escapeRegex(req.query.search), "gi");
     Campground.find(
@@ -185,9 +185,16 @@ module.exports.renderEditCampgroundForm = async (req, res, next) => {
 
 module.exports.editCampground = async (req, res, next) => {
   const { id } = req.params;
+  const geoData = await geocoder
+    .forwardGeocode({
+      query: req.body.campground.location,
+      limit: 1,
+    })
+    .send();
   const campground = await Campground.findByIdAndUpdate(id, {
     ...req.body.campground,
   });
+  campground.geometry = geoData.body.features[0].geometry;
   const imgs = req.files.map((f) => ({
     url: f.path,
     filename: f.filename,
