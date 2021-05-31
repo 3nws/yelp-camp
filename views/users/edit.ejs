@@ -1,5 +1,5 @@
 <% layout('layouts/boilerplate.ejs') %>
-<link rel="stylesheet" href="/stylesheets/stars.css" />
+<link rel="stylesheet" href="/stylesheets/imageUpload.css" />
 
 <div class="row">
   <h1 class="text-center">Edit Profile</h1>
@@ -39,14 +39,29 @@
       </div>
       <div class="mb-3">
         <label class="form-label" for="avatar">Avatar</label>
-        <input
-          type="file"
-          class="form-control"
-          id="avatar"
-          placeholder=""
-          value="<%= user.avatar %>"
-          name="user[avatar]"
-        />
+        <div id="file-upload-form" class="uploader">
+          <input
+            id="file-upload"
+            type="file"
+            name="user[avatar]"
+            accept="image/*"
+            class="form-control"
+          />
+          <label for="file-upload" id="file-drag">
+            <img id="file-image" src="#" alt="Preview" class="hidden" />
+            <div id="start">
+              <i class="fa fa-download" aria-hidden="true"></i>
+              <div>Select a file or drag here</div>
+              <div id="notimage" class="hidden">Please select an image</div>
+              <span id="file-upload-btn" class="btn btn-primary"
+                >Select a file</span
+              >
+            </div>
+            <div id="response" class="hidden">
+              <div id="messages"></div>
+            </div>
+          </label>
+        </div>
       </div>
       <div class="mb-3">
         <button class="button is-info">Update</button>
@@ -54,6 +69,134 @@
     </form>
   </div>
 </div>
+
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function () {
+    "use strict";
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll(".validated-form");
+
+    // Loop over them and prevent submission
+    Array.from(forms).forEach(function (form) {
+      form.addEventListener(
+        "submit",
+        function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+
+          form.classList.add("was-validated");
+        },
+        false
+      );
+    });
+  })();
+
+  function ekUpload() {
+    function Init() {
+      console.log("Upload Initialised");
+
+      var fileSelect = document.getElementById("file-upload"),
+        fileDrag = document.getElementById("file-drag"),
+        submitButton = document.getElementById("submit-button");
+
+      fileSelect.addEventListener("change", fileSelectHandler, false);
+
+      // Is XHR2 available?
+      var xhr = new XMLHttpRequest();
+      if (xhr.upload) {
+        // File Drop
+        fileDrag.addEventListener("dragover", fileDragHover, false);
+        fileDrag.addEventListener("dragleave", fileDragHover, false);
+        fileDrag.addEventListener("drop", fileSelectHandler, false);
+      }
+    }
+
+    function fileDragHover(e) {
+      var fileDrag = document.getElementById("file-drag");
+
+      e.stopPropagation();
+      e.preventDefault();
+
+      fileDrag.className =
+        e.type === "dragover" ? "hover" : "modal-body file-upload";
+    }
+
+    function fileSelectHandler(e) {
+      // Fetch FileList object
+      var files = e.target.files || e.dataTransfer.files;
+
+      // Cancel event and hover styling
+      fileDragHover(e);
+
+      // Process all File objects
+      for (var i = 0, f; (f = files[i]); i++) {
+        parseFile(f);
+        uploadFile(f);
+      }
+    }
+
+    // Output
+    function output(msg) {
+      // Response
+      var m = document.getElementById("messages");
+      m.innerHTML = msg;
+    }
+
+    function parseFile(file) {
+      console.log(file.name);
+      output("<strong>" + encodeURI(file.name) + "</strong>");
+
+      // var fileType = file.type;
+      // console.log(fileType);
+      var imageName = file.name;
+
+      var isGood = /\.(?=gif|jpg|png|jpeg)/gi.test(imageName);
+      if (isGood) {
+        document.getElementById("start").classList.add("hidden");
+        document.getElementById("response").classList.remove("hidden");
+        document.getElementById("notimage").classList.add("hidden");
+        // Thumbnail Preview
+        document.getElementById("file-image").classList.remove("hidden");
+        document.getElementById("file-image").src = URL.createObjectURL(file);
+      } else {
+        document.getElementById("file-image").classList.add("hidden");
+        document.getElementById("notimage").classList.remove("hidden");
+        document.getElementById("start").classList.remove("hidden");
+        document.getElementById("response").classList.add("hidden");
+        document.getElementById("file-upload-form").reset();
+      }
+    }
+
+    function setProgressMaxValue(e) {
+      var pBar = document.getElementById("file-progress");
+
+      if (e.lengthComputable) {
+        pBar.max = e.total;
+      }
+    }
+
+    function updateFileProgress(e) {
+      var pBar = document.getElementById("file-progress");
+
+      if (e.lengthComputable) {
+        pBar.value = e.loaded;
+      }
+    }
+
+    // Check for the various File API support.
+    if (window.File && window.FileList && window.FileReader) {
+      Init();
+    } else {
+      document.getElementById("file-drag").style.display = "none";
+    }
+  }
+  ekUpload();
+</script>
+
 <script>
   // Example starter JavaScript for disabling form submissions if there are invalid fields
   (function () {
