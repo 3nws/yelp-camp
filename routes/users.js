@@ -2,8 +2,16 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const catchAsync = require("../utils/catchAsync");
-const { registerRouteHandler, logoutRouteHandler } = require("../middleware"); // TODO ADD THIS LATER
+const {
+  registerRouteHandler,
+  logoutRouteHandler,
+  isLoggedIn,
+  isOwner,
+} = require("../middleware");
 const users = require("../controllers/users");
+const multer = require("multer");
+const { storage } = require("../cloudinary");
+const upload = multer({ storage });
 
 router
   .route("/register")
@@ -25,11 +33,11 @@ router
 router
   .route("/profile/:id")
   .get(catchAsync(users.getProfilePage))
-  .put(catchAsync(users.editProfile));
+  .put(upload.array("user[avatar]"), catchAsync(users.editProfile));
 
 router.get("/profile/:id", catchAsync(users.getProfilePage));
 
-router.get("/profile/:id/edit", users.getUserEditForm);
+router.get("/profile/:id/edit", isLoggedIn, users.getUserEditForm);
 
 router.get("/logout", logoutRouteHandler, users.logoutUser);
 

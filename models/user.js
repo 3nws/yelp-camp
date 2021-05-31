@@ -2,9 +2,20 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const passportLocalMongoose = require("passport-local-mongoose");
 
+const ImageSchema = new Schema({
+  url: String,
+  filename: String,
+});
+
 const UserSchema = new Schema({
   phoneNumber: String,
-  avatarUrl: { type: String, default: "https://i.ibb.co/5nsGfgk/default-Avatar.png" },
+  avatar: {
+    type: ImageSchema,
+    default: {
+      url: "https://i.ibb.co/5nsGfgk/default-Avatar.png",
+      filename: "defaultAvatar1",
+    },
+  },
   username: String,
   email: {
     type: String,

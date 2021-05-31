@@ -50,6 +50,8 @@ module.exports.editProfile = async (req, res) => {
   const user = await User.findByIdAndUpdate(id, {
     ...req.body.user,
   });
+  user.avatar.url = req.files[0].path;
+  user.avatar.filename = req.files[0].filename;
   await user.save();
   req.flash("success", "Successfully updated your profile!");
   res.redirect(`/profile/${user._id}`);

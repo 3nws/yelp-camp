@@ -1,6 +1,29 @@
 <% layout('layouts/boilerplate.ejs') %>
 <link rel="stylesheet" href="/stylesheets/stars.css" />
 
+<!-- <style>
+  .kv-avatar .krajee-default.file-preview-frame,
+  .kv-avatar .krajee-default.file-preview-frame:hover {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    text-align: center;
+  }
+  .kv-avatar {
+    display: inline-block;
+  }
+  .kv-avatar .file-input {
+    display: table-cell;
+    width: 213px;
+  }
+  .kv-reqd {
+    color: red;
+    font-family: monospace;
+    font-weight: normal;
+  }
+</style> -->
+
 <div class="row">
   <h1 class="text-center">Edit Profile</h1>
   <div class="col-7 margin-lr-auto">
@@ -9,6 +32,7 @@
       method="POST"
       novalidate
       class="validated-form"
+      enctype="multipart/form-data"
     >
       <div class="mb-3">
         <label class="form-label" for="username">Username</label>
@@ -20,6 +44,7 @@
           name="user[username]"
           required
           value="<%= user.username %>"
+          required
         />
       </div>
       <div class="mb-3">
@@ -32,18 +57,19 @@
           name="user[email]"
           required
           value="<%= user.email %>"
+          required
         />
       </div>
       <div class="mb-3">
         <label class="form-label" for="avatar">Avatar</label>
         <input
-          type="text"
+          type="file"
           class="form-control"
           id="avatar"
           placeholder=""
-          name="user[avatarUrl]"
+          name="user[avatar]"
+          multiple
           required
-          value="<%= user.avatarUrl %>"
         />
       </div>
       <div class="mb-3">
