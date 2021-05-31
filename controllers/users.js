@@ -45,6 +45,26 @@ module.exports.getProfilePage = async (req, res) => {
   res.render("users/profile", { user });
 };
 
+module.exports.editProfile = async (req, res) => {
+  const { id } = req.params;
+  const user = await User.findByIdAndUpdate(id, {
+    ...req.body.user,
+  });
+  await user.save();
+  req.flash("success", "Successfully updated your profile!");
+  res.redirect(`/profile/${user._id}`);
+};
+
+module.exports.getUserEditForm = async (req, res) => {
+  const { id } = req.params;
+  const user = await User.findById(id);
+  if (!user) {
+    req.flash("error", "No such user exists!");
+    return res.redirect("/campgrounds");
+  }
+  res.render("users/edit", { user });
+};
+
 module.exports.logoutUser = (req, res) => {
   req.logout();
   req.flash("success", "BYE");

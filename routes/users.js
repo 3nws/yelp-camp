@@ -22,7 +22,14 @@ router
     users.authenticate
   );
 
+router
+  .route("/profile/:id")
+  .get(catchAsync(users.getProfilePage))
+  .put(catchAsync(users.editProfile));
+
 router.get("/profile/:id", catchAsync(users.getProfilePage));
+
+router.get("/profile/:id/edit", users.getUserEditForm);
 
 router.get("/logout", logoutRouteHandler, users.logoutUser);
 
