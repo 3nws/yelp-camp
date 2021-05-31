@@ -37,7 +37,7 @@ router
 
 router.get("/profile/:id", catchAsync(users.getProfilePage));
 
-router.get("/profile/:id/edit", isLoggedIn, users.getUserEditForm);
+router.get("/profile/:id/edit", isLoggedIn, isOwner, users.getUserEditForm);
 
 router.get("/logout", logoutRouteHandler, users.logoutUser);
 

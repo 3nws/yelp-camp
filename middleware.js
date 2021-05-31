@@ -60,7 +60,6 @@ module.exports.isAuthor = async (req, res, next) => {
 
 module.exports.isOwner = async (req, res, next) => {
   const { id } = req.params;
-  console.log(id.toLocaleString() === req.user._id.toLocaleString());
   if (id.toLocaleString() !== req.user._id.toLocaleString()) {
     req.flash("error", "You don't have permission for that!");
     return res.redirect(`/profile/${id}`);
