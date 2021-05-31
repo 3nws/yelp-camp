@@ -1,14 +1,42 @@
 <% layout('layouts/boilerplate') %>
 <link rel="stylesheet" href="/stylesheets/profile.module.css" />
 
+<style>
+  .image-upload > input {
+    display: none;
+  }
+</style>
+
 <div class="row width-75">
   <div class="col-6">
     <p><strong style="font-size: 24px"><%= user.username %></strong></p>
-    <img
-      src="<%= user.avatar.url %>"
-      alt=""
-      style="height: 300px; width: 300px; margin-bottom: 1em"
-    />
+    <form
+      action="/profile/<%= user._id %>/?_method=PUT"
+      method="POST"
+      novalidate
+      id="updateAvatar"
+      class="validated-form"
+      enctype="multipart/form-data"
+    >
+      <div class="image-upload">
+        <label for="file-input">
+          <label class="form-label" for="avatar">
+            <img
+              src="<%= user.avatar.url %>"
+              alt=""
+              style="height: 300px; width: 300px; margin-bottom: 1em"
+          /></label>
+        </label>
+        <input
+          type="file"
+          class="form-control"
+          id="avatar"
+          placeholder=""
+          value="<%= user.avatar %>"
+          name="user[avatar]"
+        />
+      </div>
+    </form>
     <p><i class="fa fa-envelope-o" aria-hidden="true"></i> <%= user.email %></p>
     <p>Member since <%= user.dateRegistered.toLocaleString() %></p>
   </div>
@@ -117,5 +145,11 @@
     </div>
   </div>
 </div>
+
+<script>
+  document.getElementById("avatar").onchange = function () {
+    document.getElementById("updateAvatar").submit();
+  };
+</script>
 
 <script src="/javascripts/selectView.js"></script>
