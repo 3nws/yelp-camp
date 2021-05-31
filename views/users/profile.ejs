@@ -34,11 +34,16 @@
           class="form-control"
           id="avatar"
           placeholder=""
-          value="<%= user.avatar %>"
+          value="<%= user.avatar.url %>"
           name="user[avatar]"
         />
       </div>
     </form>
+    <a
+      href="/profile/<%= user._id %>/edit"
+      class="button is-info no-decoration mb-3"
+      >Edit</a
+    >
     <% } else { %>
     <img
       src="<%= user.avatar.url %>"
@@ -46,9 +51,6 @@
       style="height: 300px; width: 300px; margin-bottom: 1em"
     />
     <% } %>
-    <a href="/profile/<%= user._id %>/edit" class="button is-info no-decoration mb-3"
-      >Edit</a
-    >
     <p><i class="fa fa-envelope-o" aria-hidden="true"></i> <%= user.email %></p>
     <p>Member since <%= user.dateRegistered.toLocaleString() %></p>
   </div>
@@ -90,7 +92,7 @@
           <div class="media">
             <div class="media-left">
               <figure class="image is-48x48">
-                <img src="<%= user.avatarUrl %>" alt="" />
+                <img src="<%= user.avatar.url %>" alt="" />
               </figure>
             </div>
             <div class="media-content">
@@ -127,7 +129,7 @@
           <div class="media">
             <div class="media-left">
               <figure class="image is-48x48">
-                <img src="<%= user.avatarUrl %>" alt="" />
+                <img src="<%= user.avatar.url %>" alt="" />
               </figure>
             </div>
             <div class="media-content">
