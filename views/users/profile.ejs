@@ -10,6 +10,8 @@
 <div class="row width-75">
   <div class="col-6">
     <p><strong style="font-size: 24px"><%= user.username %></strong></p>
+    <% if(loggedUser &&
+    loggedUser._id.toLocaleString()===user._id.toLocaleString()) { %>
     <form
       action="/profile/<%= user._id %>/?_method=PUT"
       method="POST"
@@ -37,6 +39,16 @@
         />
       </div>
     </form>
+    <% } else { %>
+    <img
+      src="<%= user.avatar.url %>"
+      alt=""
+      style="height: 300px; width: 300px; margin-bottom: 1em"
+    />
+    <% } %>
+    <a href="/profile/<%= user._id %>/edit" class="button is-info no-decoration mb-3"
+      >Edit</a
+    >
     <p><i class="fa fa-envelope-o" aria-hidden="true"></i> <%= user.email %></p>
     <p>Member since <%= user.dateRegistered.toLocaleString() %></p>
   </div>
