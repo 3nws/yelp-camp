@@ -33,7 +33,12 @@ router
 router
   .route("/profile/:id")
   .get(catchAsync(users.getProfilePage))
-  .put(upload.array("user[avatar]"), catchAsync(users.editProfile));
+  .put(
+    isLoggedIn,
+    isOwner,
+    upload.array("user[avatar]"),
+    catchAsync(users.editProfile)
+  );
 
 router.get("/profile/:id", catchAsync(users.getProfilePage));
 
