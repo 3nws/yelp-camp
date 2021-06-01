@@ -22,7 +22,7 @@
     >
       <div class="image-upload">
         <label for="file-input">
-          <label class="form-label" for="avatar">
+          <label class="form-label show-image" for="avatar">
             <img
               src="<%= user.avatar.url %>"
               alt=""
@@ -31,8 +31,8 @@
                 width: 300px;
                 margin-bottom: 1em;
                 cursor: pointer;
-              "
-          /></label>
+              " /><i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i
+          ></label>
         </label>
         <input
           type="file"

@@ -2,7 +2,8 @@
   min-width: 75%;
   max-width: 75%;
   margin: 0 0.2em 1em 5.25em;
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  -webkit-box-shadow: #26394d 0px 20px 30px -10px;
+  box-shadow: #26394d 0px 20px 30px -10px;
   text-align: start !important;
 }
 
@@ -19,9 +20,24 @@ col-6 {
     width: 95%;
     text-align: center;
   }
-
   .card {
     margin: auto;
     text-align: start !important;
   }
+}
+
+.show-image {
+  position: relative;
+}
+
+.fa-pencil-square-o {
+  position: absolute;
+  display: none;
+  top: 2%;
+  left: 2%;
+  cursor: pointer;
+}
+
+.show-image:hover .fa-pencil-square-o {
+  display: block;
 }
