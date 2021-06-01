@@ -70,7 +70,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
-  if (!["/login", "/"].includes(req.originalUrl)) {
+  if (!["/login", "/register", "/logout", "/"].includes(req.originalUrl)) {
     req.session.returnTo = req.originalUrl;
   }
   res.locals.loggedUser = req.user;
