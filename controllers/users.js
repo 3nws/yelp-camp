@@ -41,7 +41,12 @@ module.exports.getProfilePage = async (req, res) => {
   const { id } = req.params;
   const user = await User.findById(id)
     .populate("campgrounds")
-    .populate("reviews");
+    .populate({
+      path: "reviews",
+      populate: {
+        path: "campground",
+      },
+    });
   res.render("users/profile", { user });
 };
 

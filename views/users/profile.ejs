@@ -130,6 +130,11 @@
             </div>
           </div>
           <div class="content">
+            <p class="title is-4">
+              <a class="no-decoration" href="/campgrounds/<%= review.campground._id %>"
+                ><strong><%= review.campground.title %></strong></a
+              >
+            </p>
             <% if(review.body.length>150) { %>
             <p class="card-text">
               <%= review.body.substring(0,150) %><a
