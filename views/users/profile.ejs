@@ -1,12 +1,6 @@
 <% layout('layouts/boilerplate') %>
 <link rel="stylesheet" href="/stylesheets/profile.module.css" />
 
-<style>
-  .image-upload > input {
-    display: none;
-  }
-</style>
-
 <div class="row width-75">
   <div class="col-6">
     <p><strong style="font-size: 24px"><%= user.username %></strong></p>
@@ -20,19 +14,14 @@
       class="validated-form"
       enctype="multipart/form-data"
     >
-      <div class="image-upload">
+      <div class="image-upload mb-3">
         <label for="file-input">
           <label class="form-label show-image" for="avatar">
-            <img
-              src="<%= user.avatar.url %>"
-              alt=""
-              style="
-                height: 300px;
-                width: 300px;
-                margin-bottom: 1em;
-                cursor: pointer;
-              " /><i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i
-          ></label>
+            <i class="fa fa-pencil-square-o fa-5x" aria-hidden="true"></i>
+            <div class="photo-container">
+              <img src="<%= user.avatar.url %>" alt="" />
+            </div>
+          </label>
         </label>
         <input
           type="file"
@@ -50,11 +39,9 @@
       >Edit</a
     >
     <% } else { %>
-    <img
-      src="<%= user.avatar.url %>"
-      alt=""
-      style="height: 300px; width: 300px; margin-bottom: 1em"
-    />
+    <div class="photo-container mb-3">
+      <img src="<%= user.avatar.url %>" alt="" />
+    </div>
     <% } %>
     <p><i class="fa fa-envelope-o" aria-hidden="true"></i> <%= user.email %></p>
     <p>Member since <%= user.dateRegistered.toLocaleString() %></p>
@@ -96,7 +83,7 @@
         <div class="card-content">
           <div class="media">
             <div class="media-left">
-              <figure class="image is-48x48">
+              <figure class="image is-48x48 round-avatar">
                 <img src="<%= user.avatar.url %>" alt="" />
               </figure>
             </div>
@@ -133,7 +120,7 @@
         <div class="card-content">
           <div class="media">
             <div class="media-left">
-              <figure class="image is-48x48">
+              <figure class="image is-48x48 round-avatar">
                 <img src="<%= user.avatar.url %>" alt="" />
               </figure>
             </div>

@@ -26,15 +26,44 @@ col-6 {
   }
 }
 
+.image-upload > input {
+  display: none;
+}
+
 .show-image {
   position: relative;
+}
+
+.show-image {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  cursor: pointer;
+  overflow: hidden;
+  margin: 0 auto;
+  box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
+}
+
+.photo-container {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  cursor: pointer;
+  overflow: hidden;
+  margin: 0 auto;
+  box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
+}
+
+.photo-container:hover,
+.fa-pencil-square-o:hover .photo-container {
+  opacity: 0.3;
 }
 
 .fa-pencil-square-o {
   position: absolute;
   display: none;
-  top: 2%;
-  left: 2%;
+  top: 40%;
+  left: 40%;
   cursor: pointer;
 }
 
