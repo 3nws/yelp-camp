@@ -53,20 +53,24 @@ const seedDB = async () => {
       },
       images: [
         {
-          url: "https://res.cloudinary.com/dlgcegblt/image/upload/v1621712289/YelpCamp/qtvtykt1fzfohob7vi9h.jpg",
-          filename: "YelpCamp/qtvtykt1fzfohob7vi9h",
+          url: "https://res.cloudinary.com/dlgcegblt/image/upload/v1622304963/YelpCamp/mowbzucetct2lqrvmfat.jpg",
+          filename: "YelpCamp/mowbzucetct2lqrvmfat",
         },
         {
-          url: "https://res.cloudinary.com/dlgcegblt/image/upload/v1621712289/YelpCamp/pwl2oikihakclvhf4tiu.jpg",
-          filename: "YelpCamp/pwl2oikihakclvhf4tiu",
+          url: "https://res.cloudinary.com/dlgcegblt/image/upload/v1622304963/YelpCamp/ocauduijy8gf7dfd4cdf.jpg",
+          filename: "YelpCamp/ocauduijy8gf7dfd4cdf",
         },
         {
-          url: "https://res.cloudinary.com/dlgcegblt/image/upload/v1621712289/YelpCamp/rmlus8kzbnnguicadffg.jpg",
-          filename: "YelpCamp/rmlus8kzbnnguicadffg",
+          url: "https://res.cloudinary.com/dlgcegblt/image/upload/v1622304963/YelpCamp/arwuarpv6hovflfyz9xf.jpg",
+          filename: "YelpCamp/arwuarpv6hovflfyz9xf",
         },
         {
-          url: "https://res.cloudinary.com/dlgcegblt/image/upload/v1621712289/YelpCamp/zahwbcq7e6n7ae6c8aj7.jpg",
-          filename: "YelpCamp/zahwbcq7e6n7ae6c8aj7",
+          url: "https://res.cloudinary.com/dlgcegblt/image/upload/v1621846211/YelpCamp/zmbfglagjzphr2ebefhu.jpg",
+          filename: "YelpCamp/zmbfglagjzphr2ebefhu",
+        },
+        {
+          url: "https://res.cloudinary.com/dlgcegblt/image/upload/v1621846210/YelpCamp/m4vmbkei3yymwqoz3ftj.jpg",
+          filename: "m4vmbkei3yymwqoz3ftj",
         },
       ],
     });
