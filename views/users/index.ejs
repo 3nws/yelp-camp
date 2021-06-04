@@ -1,0 +1,97 @@
+<% layout('layouts/boilerplate.ejs') %>
+<link rel="stylesheet" href="/stylesheets/users.module.css" />
+
+<nav id="searchNav" class="navbar navbar-expand navbar-light bg-white mb-5">
+  <div class="container">
+    <div class="collapse navbar-collapse">
+      <!-- TODO ADD SORTING USERS -->
+      <!-- <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Sort By
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <form class="sortForm" action="/campgrounds" method="GET">
+              <input type="text" name="sortby" value="campPosted" class="d-none" />
+              <button type="submit" class="dropdown-item">Campgrounds Posted</button>
+            </form>
+            <form class="sortForm" action="/campgrounds" method="GET">
+              <input type="text" name="sortby" value="revPosted" class="d-none" />
+              <button type="submit" class="dropdown-item">Reviews Posted</button>
+            </form>
+            <form class="sortForm" action="/campgrounds" method="GET">
+              <input
+                type="text"
+                name="sortby"
+                value="registerDateLow"
+                class="d-none"
+              />
+              <button type="submit" class="dropdown-item">
+                Date Registered Descending
+              </button>
+            </form>
+            <form class="sortForm" action="/campgrounds" method="GET">
+              <input
+                type="text"
+                name="sortby"
+                value="registerDateHigh"
+                class="d-none"
+              />
+              <button type="submit" class="dropdown-item">
+                Date Registered Ascending
+              </button>
+            </form>
+            <a href="/campgrounds" href class="dropdown-item">Reset</a>
+          </ul>
+        </li>
+      </ul> -->
+      <div class="d-md-block">
+        <form action="/users" method="GET" class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            type="text"
+            name="search"
+            placeholder="Search Users..."
+            aria-label="Search"
+          />
+          <div class="input-group-append">
+            <button class="btn" type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="campgrounds-container">
+  <% for (let user of users) { %>
+  <a class="user-" href="/profile/<%= user._id %>">
+    <div class="round-avatar image is 48by48">
+      <img src="<%= user.avatar.url %>" alt="" />
+      <div class="middle">
+        <% if(user.username.length>10) { %>
+        <div class="text"><%= user.username.substring(0,10) %>...</div>
+        <% }else { %>
+        <div class="text"><%= user.username %></div>
+        <% } %>
+        <p class="text-muted" style="margin-bottom: -2em">
+          Member since <%=
+          user.dateRegistered.getDate()+'/'+user.dateRegistered.getMonth()+'/'+user.dateRegistered.getFullYear()
+          %>
+        </p>
+      </div>
+    </div>
+  </a>
+  <% } %>
+</div>

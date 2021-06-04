@@ -13,6 +13,8 @@ const multer = require("multer");
 const { storage } = require("../cloudinary");
 const upload = multer({ storage });
 
+router.route("/users").get(users.viewRegisteredUsers);
+
 router
   .route("/register")
   .get(registerRouteHandler, users.renderRegisterForm)

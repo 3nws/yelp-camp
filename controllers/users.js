@@ -1,4 +1,43 @@
 const User = require("../models/user");
+const { escapeRegex } = require("../utils/escapeRegex");
+
+module.exports.viewRegisteredUsers = async (req, res, next) => {
+  const pageNumber = req.query.page || 1;
+
+  if (req.query.search && !req.xhr) {
+    const regex = new RegExp(escapeRegex(req.query.search), "gi");
+    User.find(
+      { $or: [{ username: regex }, { email: regex }] },
+      function (err, users) {
+        if (err) {
+          console.log(err);
+        } else {
+          res.render("users/index", {
+            users: users.reverse(0, 20 + 1),
+            num_of_pages: users.length / 20,
+            pageNumber,
+          });
+        }
+      }
+    );
+  } else {
+    User.find({}, function (err, users) {
+      if (err) {
+        console.log(err);
+      } else {
+        if (req.xhr) {
+          res.json(users);
+        } else {
+          res.render("users/index", {
+            users: users.reverse().slice(0, 20 + 1),
+            num_of_pages: users.length / 20,
+            pageNumber,
+          });
+        }
+      }
+    }).populate("author");
+  }
+};
 
 module.exports.renderRegisterForm = (req, res) => {
   res.render("users/register");

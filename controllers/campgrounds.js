@@ -1,14 +1,11 @@
 const Campground = require("../models/campground");
 const User = require("../models/user");
 const { cloudinary } = require("../cloudinary");
+const { escapeRegex } = require("../utils/escapeRegex");
 const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
 const mbxToken = process.env.MAPBOX_TOKEN;
 
 const geocoder = mbxGeocoding({ accessToken: mbxToken });
-
-function escapeRegex(text) {
-  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
-}
 
 module.exports.renderFullMap = async (req, res, next) => {
   const campgrounds = await Campground.find({});
