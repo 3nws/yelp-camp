@@ -14,6 +14,7 @@ const passport = require("passport");
 const LocalStrat = require("passport-local");
 const User = require("./models/user");
 const multer = require("multer");
+const csrf = require("csurf");
 
 const campgroundRoutes = require("./routes/campgrounds");
 const reviewRoutes = require("./routes/reviews");
@@ -64,6 +65,7 @@ app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(csrf({ cookie: true }));
 passport.use(new LocalStrat(User.authenticate()));
 
 passport.serializeUser(User.serializeUser());
