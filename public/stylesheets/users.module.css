@@ -9,6 +9,12 @@
   text-align: center;
 }
 
+.users-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .round-avatar {
   float: left;
   position: relative;
@@ -33,6 +39,17 @@
   border-radius: 50%;
 }
 
+.image-container {
+  width: 300px;
+  height: 300px;
+}
+
+@media only screen and (max-width: 1640px) {
+  .user- {
+    margin: 0 9em 2em 0;
+  }
+}
+
 @media only screen and (max-width: 1222px) {
   .user- {
     width: 15%;
@@ -48,6 +65,7 @@
 @media only screen and (max-width: 930px) {
   .user- {
     width: 25%;
+    margin: 0 10em 2em 0;
   }
 }
 
@@ -62,3 +80,4 @@
     width: 50%;
   }
 }
+

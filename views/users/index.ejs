@@ -74,10 +74,10 @@
   </div>
 </nav>
 
-<div class="campgrounds-container">
+<div class="users-container">
   <% for (let user of users) { %>
   <a class="user-" href="/profile/<%= user._id %>">
-    <div class="round-avatar image is 48by48">
+    <div class="round-avatar image is 48by48 image-container">
       <img src="<%= user.avatar.url %>" alt="" />
       <div class="middle">
         <% if(user.username.length>10) { %>
