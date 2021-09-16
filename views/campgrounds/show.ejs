@@ -36,6 +36,7 @@
           type="button"
           data-bs-target="#campgroundCarousel"
           data-bs-slide="prev"
+          aria-label="Previous Campground Image"
         >
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
@@ -45,6 +46,7 @@
           type="button"
           data-bs-target="#campgroundCarousel"
           data-bs-slide="next"
+          aria-label="Next Campground Image"
         >
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
@@ -82,7 +84,7 @@
             action="/campgrounds/<%= campground._id %>?_method=DELETE"
             method="POST"
           >
-            <button class="button is-danger">DELETE</button>
+            <button class="button is-danger" aria-label="Delete The Campground">DELETE</button>
           </form>
         </div>
         <% } %>
@@ -162,7 +164,7 @@
           ></textarea>
           <div class="valid-feedback">Looks good!</div>
         </div>
-        <button class="button is-success">Submit</button>
+        <button class="button is-success" aria-label="Post Review">Submit</button>
       </form>
       <% } %> <% for(let review of campground.reviews.reverse()) { %>
       <div class="card mb-3" style="max-width: 100%">
@@ -174,7 +176,7 @@
           <p class="starability-result" data-rating="<%= review.rating %>"></p>
           <p class="card-text showMore"><%= review.body %></p>
           <% if( loggedUser && review.author.equals(loggedUser._id)) { %>
-          <button class="button is-info is-small">
+          <button class="button is-info is-small" aria-label="Edit Review">
             <a
               href="/campgrounds/<%= campground._id %>/reviews/<%=review._id%>/edit"
               class="no-decoration"
@@ -187,7 +189,7 @@
             class="d-inline"
             method="POST"
           >
-            <button class="button is-danger is-small">Delete</button>
+            <button class="button is-danger is-small" aria-label="Delete Review">Delete</button>
           </form>
           
           <% } %>

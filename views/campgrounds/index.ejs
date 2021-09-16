@@ -21,11 +21,11 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <form class="sortForm" action="/campgrounds" method="GET">
               <input type="text" name="sortby" value="rateAvg" class="d-none" />
-              <button type="submit" class="dropdown-item">Highest Rated</button>
+              <button type="submit" class="dropdown-item" aria-label="Sort by Highest Rated">Highest Rated</button>
             </form>
             <form class="sortForm" action="/campgrounds" method="GET">
               <input type="text" name="sortby" value="total" class="d-none" />
-              <button type="submit" class="dropdown-item">Most Reviewed</button>
+              <button type="submit" class="dropdown-item" aria-label="Sort by Most Reviewed">Most Reviewed</button>
             </form>
             <form class="sortForm" action="/campgrounds" method="GET">
               <input
@@ -34,7 +34,7 @@
                 value="priceLow"
                 class="d-none"
               />
-              <button type="submit" class="dropdown-item">
+              <button type="submit" class="dropdown-item" aria-label="Sort by Price Descending">
                 Price Descending
               </button>
             </form>
@@ -45,7 +45,7 @@
                 value="priceHigh"
                 class="d-none"
               />
-              <button type="submit" class="dropdown-item">
+              <button type="submit" class="dropdown-item" aria-label="Sort by Price Ascending">
                 Price Ascending
               </button>
             </form>
@@ -64,7 +64,7 @@
             aria-label="Search"
           />
           <div class="input-group-append">
-            <button class="btn" type="submit">
+            <button class="btn" type="submit" aria-label="Search">
               <i class="fa fa-search"></i>
             </button>
           </div>
