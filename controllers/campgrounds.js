@@ -14,6 +14,9 @@ module.exports.renderFullMap = async (req, res, next) => {
 
 module.exports.index = async (req, res, next) => {
   const pageNumber = req.query.page || 1;
+  const searchQuery = req.query.search || null;
+  const sortByQuery = req.query.sortby || null;
+  // will use these later to implement multiple queries
 
   function paginationHandler(campgrounds) {
     return {
