@@ -53,3 +53,5 @@ Nodemon will restart the server everytime you make a change.
 - Auth via google.
 - Paginating ~~the index page~~ and the show page for ~~campgrounds and~~ reviews ~~respectively~~.
 - Resetting password.
+- Paginating the users page.
+- Fixing user avatars dimensions.
