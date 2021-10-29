@@ -22,7 +22,7 @@ To get a local copy up and running follow these steps.
 ### Installation
 - Clone the project
   ```
-  git clone https://github.com/eneskurbetoglu/yelp-camp.git
+  git clone https://github.com/3nws/yelp-camp.git
   ```
 - Install all the dependencies by running `npm install`.
 - Add these environment variables to a .env file on your project root directory.
