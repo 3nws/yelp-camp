@@ -220,6 +220,9 @@ module.exports.deleteCampground = async (req, res, next) => {
     req.flash("error", "You don't have permission for that!");
     return res.redirect(`/campgrounds/${id}`);
   }
+  for (let file of campground.images){
+    await cloudinary.uploader.destroy(file['filename']);
+  }
   await Campground.findByIdAndDelete(id);
   req.flash("success", "Successfully deleted the campground!");
   res.redirect("/campgrounds");
