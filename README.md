@@ -3,7 +3,7 @@ YelpCamp was created using Node.js, Express, and MongoDB.
 
 I am trying to implement whatever feature I can think of to expand upon this and better understand back-end development.
 
-[Live Demo](https://yelp-camp-10247.herokuapp.com)
+[Live Demo](https://yelp-camp-10247.herokuapp.com) (Not so live anymore)
 
 # Getting Started
 
